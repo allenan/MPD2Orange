@@ -14,7 +14,9 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'mpd2.phaseserver.info';
+//Use top for production server, bottom for development server
+//$config['base_url']	= 'mpd2.phaseserver.info';
+$config['base_url']	= 'localhost/mpd2';
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +28,9 @@ $config['base_url']	= 'mpd2.phaseserver.info';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = '';
+//Use top for production server, bottom for development server
+//$config['index_page'] = '';
+$config['index_page'] = 'index.php';
 
 /*
 |--------------------------------------------------------------------------
