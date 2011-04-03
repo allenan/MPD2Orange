@@ -16,7 +16,7 @@
 */
 //Use top for production server, bottom for development server
 //$config['base_url']	= 'mpd2.phaseserver.info';
-$config['base_url']	= 'localhost/mpd2';
+$config['base_url']	= 'http://localhost:8888/mpd2';
 
 /*
 |--------------------------------------------------------------------------
@@ -228,7 +228,7 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = '324jlkal43a9u0234ljk$&#';
 
 /*
 |--------------------------------------------------------------------------
