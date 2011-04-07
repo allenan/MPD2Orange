@@ -8,7 +8,7 @@ class Alumni_model extends CI_Model{
 		$sort_by = (in_array($sort_by, $sort_columns)) ? $sort_by : 'GraduationYear';
 		
 		// Results
-		$q = $this->db->select('GraduationYear, CurrentEmployer, FirstName, LastName, Industry')
+		$q = $this->db->select('AlumniID, GraduationYear, CurrentEmployer, FirstName, LastName, Industry')
 		->from('alumni')
 		->order_by($sort_by, $sort_order);
 		

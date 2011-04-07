@@ -34,7 +34,7 @@
 		<table>
 			<thead>
 				<?php foreach ($fields as $field_name => $field_display): ?>
-				<th>
+				<th <?php if($sort_by == $field_name) echo "class=\"sort_$sort_order\"" ?>>
 					<?php echo anchor("site/alumni/$field_name/" .
 					(($sort_order == 'desc' && $sort_by == $field_name) ? 'asc' : 'desc'),
 					$field_display); ?>
@@ -47,7 +47,10 @@
 					<tr>
 						<?php foreach ($fields as $field_name => $field_display): ?>
 							<td>
-								<?php echo $alum->$field_name; ?>
+								<?php if($field_display == 'Last') echo anchor("site/bio/".
+								$alum->AlumniID,
+								$alum->$field_name);
+								 else echo $alum->$field_name; ?>
 							</td>
 						<?php endforeach; ?>
 					</tr>
