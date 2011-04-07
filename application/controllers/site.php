@@ -20,10 +20,27 @@ class Site extends CI_Controller
 		$this->load->view('frontend/includes/template', $data);
 	}
 	
-	public function alumni()
-	{
-		$data['main_content'] = 'alumni';
+	public function alumni($sort_by = 'graduationyear', $sort_order = 'desc')
+	{			
+		$data['fields'] = array(
+		'GraduationYear' => 'Graduated',
+		'FirstName' => 'First',
+		'LastName' => 'Last',
+		'CurrentEmployer' => 'Current Employer',
+		'Industry' => 'Industry');
+		
+		$this->load->model('Alumni_model');
+		
+		$results = $this->Alumni_model->search($sort_by, $sort_order);
+		
+		$data['alumni'] = $results['rows'];
+		$data['main_content'] = 'alumni'; 
+		$data['sort_order'] = $sort_order;
+		$data['sort_by'] = $sort_by;
+		
 		$this->load->view('frontend/includes/template', $data);
+		
+		
 	}
 	
 	public function project()
