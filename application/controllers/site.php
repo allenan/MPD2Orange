@@ -49,9 +49,13 @@ class Site extends CI_Controller
 		$this->load->view('frontend/includes/template', $data);
 	}
 	
-	public function bio()
+	public function bio($alum_id)
 	{
 		$data['main_content'] = 'bio';
+
+                $this->load->model('Bio_model');
+                $data['dummy'] = $this->Bio_model->get_dummy($alum_id);
+
 		$this->load->view('frontend/includes/template', $data);
 	}
 	

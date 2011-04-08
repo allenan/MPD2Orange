@@ -5,10 +5,19 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/reset.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/text.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/default.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/demo_table.css" />
 	
-	<script type="text/javascript" src="js/prototype.js"></script>
+	<!--<script type="text/javascript" src="js/prototype.js"></script>
 	<script type="text/javascript" src="js/scriptaculous.js?load=effects,builder"></script>
-	<script type="text/javascript" src="js/lightbox.js"></script>
-	
-	<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="js/lightbox.js"></script>-->
+
+
+        <script src="<?php echo base_url()?>js/jquery.js" language="javascript" type="text/javascript" ></script>
+       <script src="<?php echo base_url()?>js/jquery.dataTables.js" language="javascript" type="text/javascript" /></script>
+     <script charset="utf-8" type="text/javascript">
+            $(document).ready(function() {
+                $('#alumni_table').dataTable();
+            } );
+        </script>
+	<!--<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />-->
 </head>
