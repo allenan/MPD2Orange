@@ -52,10 +52,13 @@ class Site extends CI_Controller
 	public function bio($alum_id)
 	{
 		$data['main_content'] = 'bio';
-
-                $this->load->model('Bio_model');
-                $data['dummy'] = $this->Bio_model->get_dummy($alum_id);
-
+        $this->load->model('Image_model');
+					
+		if($query = $this->Image_model->get_image_alum($alum_id))
+		{
+			$data['alum_img'] = $query;
+		}
+		
 		$this->load->view('frontend/includes/template', $data);
 	}
 	
