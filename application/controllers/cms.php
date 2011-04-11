@@ -11,6 +11,36 @@ class Cms extends CI_Controller {
 		$data['cms_main_content'] = 'home';
 		$this->load->view('cms/cms_template', $data);
 	}
+
+        function bio(){
+            $data['cms_main_content'] = 'bio';
+            $this->load->view('cms/cms_template', $data);
+        }
+
+        function tab0(){
+            $data['cms_main_content'] = 'tab0';
+            $this->load->view('cms/cms_template', $data);
+        }
+
+        function tab1(){
+            $data['cms_main_content'] = 'tab1';
+            $this->load->view('cms/cms_template', $data);
+        }
+
+        function tab2(){
+            $data['cms_main_content'] = 'tab2';
+            $this->load->view('cms/cms_template', $data);
+        }
+
+        function tab3(){
+            $data['cms_main_content'] = 'tab3';
+            $this->load->view('cms/cms_template', $data);
+        }
+
+        function tab4(){
+            $data['cms_main_content'] = 'tab4';
+            $this->load->view('cms/cms_template', $data);
+        }
 	
 	function is_logged_in()
 	{
