@@ -2,9 +2,15 @@
 
 class Project_model extends CI_Model {
 	
-	function get_projects($proj_id)
+	function get_projects_with_image()
 	{
-		$this->db->where('projid', $proj_id);
+		$query = $this->db->query('select * from images right outer join project on images.projID = project.projID');
+		return $query->result();
+	}
+	
+	function get_project_years()
+	{
+		$this->db->select('year');
 		$query = $this->db->get('project');
 		return $query->result();
 	}

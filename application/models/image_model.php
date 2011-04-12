@@ -8,7 +8,7 @@ class Image_model extends CI_Model {
 		$this->db->select('imageURL');
 		$query = $this->db->get('images');
 		
-		return $query->result();
+		return $query->row();
 	}
 	
 	function get_image_proj($proj_id)
@@ -36,6 +36,12 @@ class Image_model extends CI_Model {
 	{
 		$this->db->where('imageID', $img_id);
 		$this->db->delete('images');
+	}
+		
+	function get_team_pictures($alum_id)
+	{
+		$query = $this->db->query("select imageURL from images where teamid = (select teamid from images where alumniid = ?) and alumniid <> ?", array($alum_id, $alum_id));
+		return $query->result();
 	}
 	
 }
