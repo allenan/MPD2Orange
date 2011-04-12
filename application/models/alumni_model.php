@@ -17,6 +17,14 @@ class Alumni_model extends CI_Model{
 		return $ret;
 	}
 	
+	function bio_info($alum_id){
+		$this->db->where('alumniid', $alum_id);
+		$query = $this->db->get('alumni');
+		
+		return $query->row();
+	}
+
+	
 	
 	
 	

@@ -2,6 +2,30 @@
 
 		
 		<div id="content" class="grid_12">
+		<?php if(isset($years)) : foreach ($years as $oneyear) : ?>
+				
+		<div class="grid_1 alpha year">
+			<a name="<?php echo $oneyear->year; ?>"><p><?php echo $oneyear->year; ?></p></a>
+		</div>
+		<div class="grid_11 alpha omega">
+		<?php foreach ($projs as $project) : if($project->Year == $oneyear->year) : ?>
+
+		<div class="img">
+		<a href= "<?php echo base_url(); echo index_page(); echo'/';?>site/project/<?php echo $project->ProjID; ?>" title="<?php echo $project->ProjectName; ?>">
+		<img src="<?php echo $project->ImageURL; ?>" alt="<?php echo $project->ProjectName; ?>" width="240" />
+		</a>
+			<div class="desc"><?php echo $project->description; ?></div>
+		</div>
+	  	<?php endif; ?>
+		<?php endforeach; ?>
+		</div>
+		
+		<?php endforeach; ?>
+		<?php endif; ?>
+		
+		</div>
+		<!--
+		
 		<div class="grid_1 alpha year">
 			<a name="2011"><p>2011</p></a>
 		</div>
@@ -94,4 +118,4 @@
 							</div>
 		</div>
 	</div>
-
+-->

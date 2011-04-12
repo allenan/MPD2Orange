@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 10, 2011 at 01:22 AM
+-- Generation Time: Apr 12, 2011 at 09:03 AM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
@@ -24,8 +24,6 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 -- Table structure for table `alumni`
 --
--- Creation: Apr 05, 2011 at 08:20 PM
---
 
 DROP TABLE IF EXISTS `alumni`;
 CREATE TABLE IF NOT EXISTS `alumni` (
@@ -45,21 +43,20 @@ CREATE TABLE IF NOT EXISTS `alumni` (
   PRIMARY KEY (`AlumniID`),
   KEY `UserID` (`UserID`),
   KEY `ProjID` (`ProjID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `alumni`
 --
 
 INSERT INTO `alumni` (`UserID`, `CurrentEmployer`, `GraduationYear`, `Industry`, `FirstName`, `LastName`, `ProjID`, `AlumniID`, `TeamID`, `info`, `facebook`, `twitter`, `linkedin`) VALUES
-(4, 'Microsoft', 2008, 'CS', 'John', 'Doe', 2, 4, 100, 'I''m an alumni', 'With a facebook', NULL, NULL);
+(4, 'Microsoft', 2008, 'CS', 'John', 'Doe', 2, 4, 100, 'I''m an alumni', 'With a facebook', 'And a twitter', 'and perhaps a linkedin'),
+(NULL, 'Northwestern', 1960, 'CS', 'Larry', 'Birnbaum', 2, 5, 1000, 'This is Larry', 'dummyfb', 'dummytwitter', 'dummylinkedin');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `email`
---
--- Creation: Apr 06, 2011 at 07:38 PM
 --
 
 DROP TABLE IF EXISTS `email`;
@@ -82,35 +79,35 @@ CREATE TABLE IF NOT EXISTS `email` (
 --
 -- Table structure for table `images`
 --
--- Creation: Apr 06, 2011 at 07:51 PM
---
 
 DROP TABLE IF EXISTS `images`;
 CREATE TABLE IF NOT EXISTS `images` (
-  `ImageID` int(11) NOT NULL,
+  `ImageID` int(11) NOT NULL AUTO_INCREMENT,
   `AlumniID` int(11) DEFAULT NULL,
   `ProjID` int(11) DEFAULT NULL,
   `ImageURL` varchar(256) NOT NULL,
   `imgType` int(1) NOT NULL,
   `description` longtext,
+  `TeamID` int(4) DEFAULT NULL,
   PRIMARY KEY (`ImageID`),
   KEY `ProjID` (`ProjID`),
   KEY `AlumniID` (`AlumniID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `images`
 --
 
-INSERT INTO `images` (`ImageID`, `AlumniID`, `ProjID`, `ImageURL`, `imgType`, `description`) VALUES
-(0, NULL, NULL, 'dummyURL', 1, 'A Cool Img');
+INSERT INTO `images` (`ImageID`, `AlumniID`, `ProjID`, `ImageURL`, `imgType`, `description`, `TeamID`) VALUES
+(1, NULL, 2, 'http://www.eecs.northwestern.edu/images/comprofiler/tn64_4b84458165b2b.jpg', 2, 'Here''s a cool description!', NULL),
+(2, 5, NULL, 'http://www.eecs.northwestern.edu/images/comprofiler/tn65_4b844185d65de.jpg', 0, 'Larry', 1000),
+(3, 4, NULL, 'http://rpmedia.ask.com/ts?u=/wikipedia/commons/thumb/7/71/EnglishSpringerSpan2_wb.jpg/150px-EnglishSpringerSpan2_wb.jpg', 1, 'Dog', 1000),
+(4, NULL, 3, 'http://www.aisleone.net/wp-content/uploads/2007/07/coke.jpg', 1, 'A can of coke', NULL);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `project`
---
--- Creation: Apr 06, 2011 at 07:45 PM
 --
 
 DROP TABLE IF EXISTS `project`;
@@ -118,22 +115,22 @@ CREATE TABLE IF NOT EXISTS `project` (
   `ProjID` int(4) NOT NULL AUTO_INCREMENT,
   `ProjectName` varchar(32) NOT NULL,
   `Summary` longtext,
+  `Year` int(4) NOT NULL,
   PRIMARY KEY (`ProjID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `project`
 --
 
-INSERT INTO `project` (`ProjID`, `ProjectName`, `Summary`) VALUES
-(2, 'Dummy Project', 'Cool Project.');
+INSERT INTO `project` (`ProjID`, `ProjectName`, `Summary`, `Year`) VALUES
+(2, 'Dummy Project', 'Cool Project.', 2011),
+(3, 'A second project', 'Trying out a second project', 2010);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `users`
---
--- Creation: Apr 03, 2011 at 01:43 PM
 --
 
 DROP TABLE IF EXISTS `users`;

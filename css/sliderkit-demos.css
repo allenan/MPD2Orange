@@ -168,10 +168,10 @@
 /*---------------------------------
  *  Photos gallery > Vertical
  *---------------------------------*/
-.photosgallery-vertical{width:500px;height:335px;}
+.photosgallery-vertical{width:595px;height:335px; left:150px;}
 
 /* Nav */
-.photosgallery-vertical .sliderkit-nav{top:0;left:0;width:95px;height:100%;background:#000;}
+.photosgallery-vertical .sliderkit-nav{top:0;right:0;width:95px;height:100%;background:#000;}
 .photosgallery-vertical .sliderkit-nav-clip{left:7px;}
 .photosgallery-vertical .sliderkit-nav-clip ul li{margin:0;padding:0;}
 .photosgallery-vertical .sliderkit-nav-clip ul li a{display:block;width:75px;height:50px;overflow:hidden;padding:3px;}
