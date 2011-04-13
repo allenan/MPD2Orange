@@ -89,6 +89,7 @@ CREATE TABLE IF NOT EXISTS `images` (
   `imgType` int(1) NOT NULL,
   `description` longtext,
   `TeamID` int(4) DEFAULT NULL,
+  `position` int(1) DEFAULT NULL,
   PRIMARY KEY (`ImageID`),
   KEY `ProjID` (`ProjID`),
   KEY `AlumniID` (`AlumniID`)

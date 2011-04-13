@@ -16,7 +16,7 @@
 */
 //Use top for production server, bottom for development server
 //$config['base_url']	= 'mpd2.phaseserver.info';
-$config['base_url']	= 'http://localhost/mpd2';
+$config['base_url']	= 'http://localhost:8888/mpd2';
 
 /*
 |--------------------------------------------------------------------------

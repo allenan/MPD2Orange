@@ -43,5 +43,25 @@ class Image_model extends CI_Model {
 		$query = $this->db->query("select imageURL, alumniID from images where teamid = ?", array($team_id));
 		return $query->result();
 	}
+	function check_dups($data)
+	{
+		$this->db->where('AlumniID', $data['AlumniID']);
+        $this->db->where('ProjID', $data['ProjID']);
+		$this->db->where('position', $data['position']);
+        $query = $this->db->get('images');
+
+        if ($query->num_rows == 1) {
+			foreach($query->result() as $row)
+			{
+				$retval['url'] = $row->ImageURL;
+				$retval['id'] = $row->ImageID;
+				return $retval;
+			}
+            //return true;
+        }
+		
+		return false;
+		
+	}
 	
 }

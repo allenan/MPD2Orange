@@ -13,7 +13,19 @@ class Cms extends CI_Controller {
 	}
 
         function bio(){
+            $this->load->model('bio_model');
+            $Login = $this->session->userdata('Login');
             $data['cms_main_content'] = 'bio';
+            $data['bio_content'] = $this->bio_model->get_bio($Login);
+            $this->load->view('cms/cms_template', $data);
+        }
+
+        function project(){
+            $this->load->model('project_model');
+            $Login = $this->session->userdata('Login');
+            $data['cms_main_content'] = 'project_settings';
+            $data['projectName'] = $this->project_model->get_projectName($Login);
+            $data['projectSummary'] = $this->project_model->get_summary($Login);
             $this->load->view('cms/cms_template', $data);
         }
 
@@ -51,5 +63,33 @@ class Cms extends CI_Controller {
                     redirect('login');
             }
 	}
+
+        function update_project()
+        {
+            $this->load->model('project_model');
+            $data[0] = $this->input->post('projectName');
+            $data[1] = $this->input->post('projectSummary');
+            $data[2] = $this->session->userdata('Login');
+
+            $this->project_model->update_project($data);
+
+            redirect('cms/project');
+        }
+
+        function update_bio()
+        {
+            $this->load->model('bio_model');
+            $data[0] = $this->input->post('Industry');
+            $data[1] = $this->input->post('Employer');
+            $data[2] = $this->input->post('info');
+            $data[3] = $this->input->post('facebook');
+            $data[4] = $this->input->post('twitter');
+            $data[5] = $this->input->post('linkedin');
+            $data[6] = $this->session->userdata('Login');
+
+            $this->bio_model->update_bio($data);
+
+            redirect('cms/bio');
+        }
 }
 ?>
