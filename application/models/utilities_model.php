@@ -19,4 +19,13 @@ class Utilities_model extends CI_Model {
         }
         return $retVal;
     }
+	function get_teamID_Login($Login)
+    {
+        $sql = "SELECT TeamID FROM alumni WHERE UserID = (select UserID from users where Login = ?)";
+        $q = $this->db->query($sql,$Login);
+        foreach ($q->result() as $row) {
+            $retVal = $row->TeamID;
+        }
+        return $retVal;
+    }
 }
