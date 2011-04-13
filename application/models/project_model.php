@@ -52,8 +52,6 @@ class Project_model extends CI_Model {
         return $retVal;
     }
 
-//=======
-	
 	function get_projects_with_image()
 	{
 		$query = $this->db->query('select * from images right outer join project on images.projID = project.projID');
@@ -67,11 +65,6 @@ class Project_model extends CI_Model {
 		return $query->result();
 	}
 	
-//	function add_project($data)
-//	{
-//		$this->db->insert('project', $data);
-//		return;
-//	}
 	function get_first_member($proj_id)
 	{
 		$this->db->select('alumniID');
@@ -89,22 +82,7 @@ class Project_model extends CI_Model {
 		return $query->row();
 	}
 	
-	function add_project($data) 
-	{
-		$this->db->insert('project', $data);
-		return;
-	}
 	
-//	function update_project($data, $proj_id)
-//	{
-//		$this->db->where('projid', $proj_id);
-//		$this->db->update('project', $data);
-//	}
-	
-//	function delete_project($proj_id)
-//	{
-//		$this->db->where('projid', $proj_id);
-//		$this->db->delete('project');
-//	}
+
 
 }
