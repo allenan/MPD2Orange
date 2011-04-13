@@ -12,15 +12,3 @@
 			</ul>
 		</div>
 		
-		<div id="year_nav" class="grid_12">
-			<ul id="list-nav">
-			<li><a href="#2011">2011</a></li>
-			<li><a href="#2010">2010</a></li>
-			<li><a href="#2009">2009</a></li>
-			<li><a href="#">2008</a></li>
-			<li><a href="#">2007</a></li>
-			<li><a href="#">2006</a></li>
-			<li><a href="#">2005</a></li>
-			<li><a href="#">2004</a></li>
-			</ul>
-		</div>

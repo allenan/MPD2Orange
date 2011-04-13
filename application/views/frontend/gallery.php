@@ -1,5 +1,13 @@
 
-
+		<div id="year_nav" class="grid_12">
+			<ul id="list-nav">
+				<?php if(isset($years)) : foreach ($years as $oneyear) : ?>
+				<li><a href="#<?php echo $oneyear->year; ?>"><?php echo $oneyear->year; ?></a></li>
+				<?php endforeach; ?>
+				<?php endif; ?>
+			</ul>
+		</div>
+		
 		
 		<div id="content" class="grid_12">
 		<?php if(isset($years)) : foreach ($years as $oneyear) : ?>

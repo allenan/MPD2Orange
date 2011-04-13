@@ -38,9 +38,9 @@ class Image_model extends CI_Model {
 		$this->db->delete('images');
 	}
 		
-	function get_team_pictures($alum_id)
+	function get_team_pictures($team_id)
 	{
-		$query = $this->db->query("select imageURL from images where teamid = (select teamid from images where alumniid = ?) and alumniid <> ?", array($alum_id, $alum_id));
+		$query = $this->db->query("select imageURL, alumniID from images where teamid = ?", array($team_id));
 		return $query->result();
 	}
 	function check_dups($data)

@@ -197,7 +197,7 @@
 .photosgallery-vertical .sliderkit-go-next{top:0;right:0;}
 
 /* Panel */
-.photosgallery-vertical .sliderkit-panel{top:0;left:0;width:500px;height:335px;}
+.photosgallery-vertical .sliderkit-panel{top:0;left:0;width:500px;height:335px; background: #fff;}
 
 /* Panel > Textbox */
 .photosgallery-vertical .sliderkit-panel .sliderkit-panel-textbox{bottom:0;left:0;height:85px;width:500px;}
@@ -499,11 +499,11 @@
 /*---------------------------------
  *	Tabs > Imbricate
  *---------------------------------*/	
-.tabs-imbricate{width:550px;height:200px;}
+.tabs-imbricate{width:800px;height:600px;}
 .tabs-imbricate img{border:none;}
 
 /* Nav */
-.tabs-imbricate .customtabs-nav{position:relative;width:550px;height:22px;text-align:left;}
+.tabs-imbricate .customtabs-nav{position:relative;width:800px;height:22px;text-align:left;}
 .tabs-imbricate .customtabs-nav-clip{margin:0;}
 .tabs-imbricate .customtabs-nav-clip ul{position:relative;left:0;top:0;list-style:none;margin:0;padding:0;}
 .tabs-imbricate .customtabs-nav-clip li{height:22px;padding:0 0 0 5px;margin:0 2px 0 0;}
@@ -514,10 +514,10 @@
 .tabs-imbricate .customtabs-nav-clip li.customtabs-selected a{color:#000;background-position:right -66px;}
 
 /* Panel */
-.tabs-imbricate .customtabs-panels{width:528px;height:150px;padding:10px;border:1px solid #a3a3a3;}
-.tabs-imbricate .customtabs-panel{z-index:1;position:absolute;overflow:hidden;width:528px;height:150px;background:#fff;}
-.tabs-imbricate .customtabs-panel-active{z-index:5;}
-.tabs-imbricate .customtabs-panel-old{z-index:4;}
+.tabs-imbricate .customtabs-panels{width:800px;height:578px;padding:10px;border:1px solid #a3a3a3;}
+.tabs-imbricate .customtabs-panel{z-index:1;position:absolute;overflow:hidden;width:800px;height:578x;background:#fff;}
+.tabs-imbricate .customtabs-panel-active{z-index:5;width:800px;height:578px;}
+.tabs-imbricate .customtabs-panel-old{z-index:0;}
 
 /* News block */
 .tabs-imbricate .customtabs-news h3,
@@ -527,8 +527,8 @@
 .tabs-imbricate .customtabs-news p{margin:0;}
 
 /* Imbricated carousel */
-.tabs-imbricate .carousel-demo2{width:528px;}
-.tabs-imbricate .carousel-demo2 .sliderkit-nav{width:508px;}
+.tabs-imbricate .carousel-demo2{width:800px;}
+.tabs-imbricate .carousel-demo2 .sliderkit-nav{width:800px;}
 
 /*---------------------------------
  *	Tabs > Pagination

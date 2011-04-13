@@ -1,4 +1,4 @@
-<div id="content" class="container_16">
+<div id="content" class="container_16" style="background: #fff;">
 	<div id="bio_title" class="grid_8 push_2">
 		<?php if(isset($alum_data)) : ?>
 		<div class="grid_8">
@@ -7,8 +7,8 @@
 
 		</div>
 		<div class="grid_4">
-			<?php if(isset($alum_img)) : ?>
-			<img src="<?php echo "$alum_img->imageURL";?>" alt="<?php echo "$alum_data->FirstName $alum_data->LastName" ?>" />
+			<?php if(isset($alum_data)) : ?>
+			<img src="<?php echo "$alum_data->ImageURL";?>" alt="<?php echo "$alum_data->FirstName $alum_data->LastName" ?>" />
 			<h2><?php else : echo "Image not found!";?></h2>
 			<?php endif; ?>
 			
@@ -19,16 +19,6 @@
 		
 		<div class = "grid_8">
 		<p><?php echo "$alum_data->info";?></p>
-		
-		</div>
-		<div class = "grid_8">
-		<h2>The rest of my team</h2>
-		<p><?php if(isset($team_imgs)) : foreach ($team_imgs as $team_member) : ?>
-		<p><img src="<?php echo "$team_member->imageURL";?>" /> </p>
-		
-		<?php endforeach; ?>
-		<?php endif; ?>
-		</p>
 		
 		</div>
 		

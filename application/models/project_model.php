@@ -72,6 +72,28 @@ class Project_model extends CI_Model {
 //		$this->db->insert('project', $data);
 //		return;
 //	}
+	function get_first_member($proj_id)
+	{
+		$this->db->select('alumniID');
+		$this->db->where('projid', $proj_id);
+		$query = $this->db->get('alumni');
+		return $query->first_row();
+		
+	}
+	
+	function get_project_info($proj_id)
+	{
+		$this->db->select('projectname');
+		$this->db->where('projid', $proj_id);
+		$query = $this->db->get('project');
+		return $query->row();
+	}
+	
+	function add_project($data) 
+	{
+		$this->db->insert('project', $data);
+		return;
+	}
 	
 //	function update_project($data, $proj_id)
 //	{
