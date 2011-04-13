@@ -33,11 +33,18 @@ class Alumni_model extends CI_Model{
 		return $query->first_row();
 	}
 	
+	function get_team_position($team_id, $alum_id)
+	{
+	$query = $this->db->query("select alumniID from alumni where teamID = ? and alumniid < ? order by alumniID asc", array($team_id, $alum_id));
+	
+	return $query->num_rows();
+	}
 	function bio_info_team($team_id)
 	{
 		$this->db->where('alumni.teamid', $team_id);
 		$this->db->from('alumni');
-		$this->db->join('images','images.alumniID = alumni.alumniID');
+		$this->db->join('images','images.alumniID = alumni.alumniID');	
+		$this->db->order_by("images.alumniID", "asc");
 
 		$query = $this->db->get();
 		

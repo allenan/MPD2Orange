@@ -69,6 +69,7 @@ class Project_model extends CI_Model {
 	{
 		$this->db->select('alumniID');
 		$this->db->where('projid', $proj_id);
+		$this->db->order_by("alumniID", "asc");
 		$query = $this->db->get('alumni');
 		return $query->first_row();
 		

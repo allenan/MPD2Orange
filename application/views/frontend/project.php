@@ -25,7 +25,7 @@
 							<div class="sliderkit-nav-clip">
 								<ul>
 									<p><?php if(isset($proj_img)) : foreach ($proj_img as $an_img) : ?>
-										<<li><a href="#" rel="nofollow" title="[link title]">
+										<li><a href="#" rel="nofollow" title="[link title]">
 										<img src="<?php echo "$an_img->imageURL"; ?>" alt="[Alternative text]" /></a></li>
 									<?php endforeach; ?></p>
 									<?php endif; ?>
@@ -88,7 +88,7 @@
 							<div class="sliderkit-nav-clip">
 								<ul>
 									<p><?php if(isset($all_alum_data)) : foreach ($all_alum_data as $team_member) : ?>	
-										<<li><a href="#" rel="nofollow" title="[link title]">
+										<li><a href="#" rel="nofollow" title="[link title]">
 										<img src="<?php echo "$team_member->ImageURL"; ?>" alt="[Alternative text]" /></a></li>
 									<?php endforeach; ?></p>
 									<?php endif; ?>

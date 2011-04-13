@@ -26,6 +26,7 @@
 			shownavitems:4,
 			verticalnav:true,
 			navclipcenter:true,
+			start:<?php echo $which_alumni; ?>,
 			auto:false
 });
 	 jQuery(".tabs-imbricate").sliderkit({
