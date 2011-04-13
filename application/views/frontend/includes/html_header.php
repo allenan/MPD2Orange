@@ -28,7 +28,14 @@
 			navclipcenter:true,
 			auto:false
 });
+	 jQuery(".tabs-imbricate").sliderkit({
+		cssprefix:"customtabs",
+		auto:false,
+		tabs:true,
+		start:<?php echo $start_val; ?>
+				});
 	 });
+
 	 </script>
      <script src="<?php echo base_url()?>js/jquery.dataTables.js" language="javascript" type="text/javascript" /></script>
      <script charset="utf-8" type="text/javascript">

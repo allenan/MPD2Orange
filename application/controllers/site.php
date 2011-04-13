@@ -48,38 +48,58 @@ class Site extends CI_Controller
 		
 	}
 	
-	public function project($proj_id = 0)
+	public function project($proj_id = 0, $alum_id = 0)
 	{
 		$data['main_content'] = 'project';
-		 $this->load->model('Image_model');
-					
-		if($query = $this->Image_model->get_image_proj($proj_id))
+		$this->load->model('Image_model');
+		$this->load->model('Alumni_model');
+		$this->load->model('Project_model');
+		
+
+		
+		if($alum_id == 0)
 		{
-			$data['proj_img'] = $query;
+			$data['start_val'] = 0;
+			if($query4 = $this->Project_model->get_first_member($proj_id))
+			{
+				$alum_id = $query4->alumniID;
+			}
+		}
+		else
+		{
+			$data['start_val'] = 4;
 		}
 		
+		if($query5 = $this->Alumni_model->get_team_from_proj($proj_id))
+		{
+		$teamid = $query5->teamid;
+		}
+		else
+		{
+		$teamid = 0;
+		}
+
+		if($query0 = $this->Alumni_model->bio_info_team($teamid))
+		{
+			$data['all_alum_data'] = $query0;
+		}
+					
+		if($query2 = $this->Image_model->get_image_proj($proj_id))
+		{
+			$data['proj_img'] = $query2;
+		}
+		
+		if($query3 = $this->Project_model->get_project_info($proj_id))
+		{
+			$data['proj_info'] = $query3;
+		}
 		$this->load->view('frontend/includes/template', $data);
 	}
 	
 	public function bio($alum_id)
 	{
-		$data['main_content'] = 'bio';
-        $this->load->model('Image_model');
-		$this->load->model('Alumni_model');
-		
-		if($query0 = $this->Alumni_model->bio_info($alum_id))
-		{
-			$data['alum_data'] = $query0;
-		}
-					
-		if($query = $this->Image_model->get_image_alum($alum_id))
-		{
-			$data['alum_img'] = $query;
-		}
-		if($query1= $this->Image_model->get_team_pictures($alum_id))
-		{
-			$data['team_imgs'] = $query1;
-		}
+
+
 		
 		
 		

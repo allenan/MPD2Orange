@@ -56,7 +56,9 @@ echo'/'; ?>site/bio">Alumni</a></li>
                         <td>
                         <?php
                             if ($field_display == 'Last')
-                                echo anchor("site/bio/" .
+                                echo anchor("site/project/".
+										$alum->ProjID .
+										"/".
                                         $alum->AlumniID,
                                         $alum->$field_name);
                             else
