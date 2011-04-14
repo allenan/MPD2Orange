@@ -61,7 +61,7 @@
 	
 	<section id="secondary_bar">
 		<div class="user">
-			<p><?php echo $this->session->userdata('Login');?> (<a href="#">3 Messages</a>)</p>
+			<p><?php echo $this->session->userdata('Login');?> (<a href="#"><?php echo $this->session->userdata('Privileges');?> Messages</a>)</p>
                         <a class="logout_user" href="<?php echo base_url(); echo index_page(); echo "/";?>login/logout" title="Logout">Logout</a>
 		</div>
 		<div class="breadcrumbs_container">
@@ -74,28 +74,16 @@
 			<input type="text" value="Quick Search" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;">
 		</form>
 		<hr/>
-		<h3>Project Content</h3>
-		<ul class="toggle">
-                    <li class="icn_new_article"><a href="<?php echo base_url(); echo index_page(); echo "/";?>cms/project">Project Settings</a></li>
-                    <li class="icn_new_article"><a href="<?php echo base_url(); echo index_page(); echo "/";?>cms/tab0">Summary</a></li>
-                    <li class="icn_edit_article"><a href="<?php echo base_url(); echo index_page(); echo "/";?>cms/tab1">Product Opportunity</a></li>
-                    <li class="icn_categories"><a href="<?php echo base_url(); echo index_page(); echo "/";?>cms/tab2">Ideation</a></li>
-                    <li class="icn_tags"><a href="<?php echo base_url(); echo index_page(); echo "/";?>cms/tab3">Final Product</a></li>
-                    <li class="icn_tags"><a href="<?php echo base_url(); echo index_page(); echo "/";?>cms/tab4">Team</a></li>
-		</ul>
-		<h3>Users</h3>
-		<ul class="toggle">
-			<li class="icn_add_user"><a href="#">Add New User</a></li>
-			<li class="icn_view_users"><a href="#">View Users</a></li>
-			<li class="icn_profile"><a href="<?php echo base_url(); echo index_page(); echo "/";?>cms/bio">Your Profile</a></li>
-		</ul>
-		<h3>Media</h3>
+		<?php if ($this->session->userdata('Privileges') == 0) $this->load->view('cms/sidebar/project_content')?>
+		<?php if ($this->session->userdata('Privileges') == 0) $this->load->view('cms/sidebar/bio')?>
+		<?php if ($this->session->userdata('Privileges') == 1) $this->load->view('cms/sidebar/users')?>
+		<!--<h3>Media</h3>
 		<ul class="toggle">
 			<li class="icn_folder"><a href="#">File Manager</a></li>
 			<li class="icn_photo"><a href="#">Gallery</a></li>
 			<li class="icn_audio"><a href="#">Audio</a></li>
 			<li class="icn_video"><a href="#">Video</a></li>
-		</ul>
+		</ul>-->
 		<h3>Admin</h3>
 		<ul class="toggle">
 			<li class="icn_settings"><a href="#">Options</a></li>

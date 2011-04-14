@@ -25,6 +25,7 @@ class Login extends CI_Controller{
 	function validate_credentials()
 	{
             $this->load->model('membership_model');
+			$this->load->model('utilities_model');
 		$query = $this->membership_model->validate();
 		
 		if($query) // if the user's credentials validated...
@@ -32,7 +33,8 @@ class Login extends CI_Controller{
 			
                         $data = array(
 				'Login' => $this->input->post('Login'),
-				'is_logged_in' => true
+				'is_logged_in' => true,
+				'Privileges' => $this->utilities_model->get_privileges_Login($this->input->post('Login'))
 			);
 			$this->session->set_userdata($data);
 			redirect('cms');

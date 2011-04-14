@@ -28,4 +28,13 @@ class Utilities_model extends CI_Model {
         }
         return $retVal;
     }
+	function get_privileges_Login($Login)
+	{
+		$sql = "SELECT Privileges FROM users WHERE Login = ?";
+		$q = $this->db->query($sql,$Login);
+        foreach ($q->result() as $row) {
+            $retVal = $row->Privileges;
+        }
+        return $retVal;
+	}
 }

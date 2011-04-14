@@ -9,8 +9,11 @@ class Membership_model extends CI_Model {
         $query = $this->db->get('users');
 
         if ($query->num_rows == 1) {
+			
+			
             $newdata = array(
                    'Login'  => $this->input->post('Login')
+					
                );
             $this->session->set_userdata($newdata);
             return true;
