@@ -70,6 +70,7 @@ class Site extends CI_Controller
 			$data['start_val'] = 4;
 		}
 		
+		
 		if($query5 = $this->Alumni_model->get_team_from_proj($proj_id))
 		{
 		$teamid = $query5->teamid;
@@ -78,6 +79,8 @@ class Site extends CI_Controller
 		{
 		$teamid = 0;
 		}
+		
+		$data['which_alumni'] = $this->Alumni_model->get_team_position($teamid, $alum_id);
 
 		if($query0 = $this->Alumni_model->bio_info_team($teamid))
 		{
