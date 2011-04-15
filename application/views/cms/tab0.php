@@ -26,6 +26,7 @@
         <div class="submit_link">
             <input type="submit" value="Publish" class="alt_btn">
             <input type="submit" value="Reset">
+            <input type="button" value="Thumbnail" onClick="document.location.href='<?php echo base_url(); echo index_page(); echo '/'; ?>cms/tn/0/0'">
             <?php echo form_close(); ?>
         </div>
     </footer>
@@ -58,6 +59,7 @@
         <div class="submit_link">
             <input type="submit" value="Publish" class="alt_btn">
             <input type="submit" value="Reset">
+            <input type="button" value="Thumbnail" onClick="document.location.href='<?php echo base_url(); echo index_page(); echo '/'; ?>cms/tn/0/1'">
             <?php echo form_close(); ?>
         </div>
     </footer>
@@ -90,6 +92,7 @@
         <div class="submit_link">
             <input type="submit" value="Publish" class="alt_btn">
             <input type="submit" value="Reset">
+            <input type="button" value="Thumbnail" onClick="document.location.href='<?php echo base_url(); echo index_page(); echo '/'; ?>cms/tn/0/2'">
             <?php echo form_close(); ?>
         </div>
     </footer>
@@ -122,6 +125,7 @@
         <div class="submit_link">
             <input type="submit" value="Publish" class="alt_btn">
             <input type="submit" value="Reset">
+            <input type="button" value="Thumbnail" onClick="document.location.href='<?php echo base_url(); echo index_page(); echo '/'; ?>cms/tn/0/3'">
             <?php echo form_close(); ?>
         </div>
     </footer>

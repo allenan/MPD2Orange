@@ -53,6 +53,27 @@ class Cms extends CI_Controller {
             $data['cms_main_content'] = 'tab4';
             $this->load->view('cms/cms_template', $data);
         }
+
+        function tn($tab, $pos)
+        {
+            $this->load->model('utilities_model');
+            
+            
+            $img[0] = $this->utilities_model->get_projID_Login($this->session->userdata('Login'));
+            $img[1] = $tab;
+            $img[2] = $pos;
+            $this->load->model('image_model');
+            $data['img_url'] = $this->image_model->get_url($img);
+            $size = getimagesize('uploads/'.$data['img_url']);
+            $data['img_width'] = $size[0];
+            $data['img_height'] = $size[1];
+            $this->load->view('cms/tn',$data);
+        }
+
+        function new_user(){
+            $data['cms_main_content'] = 'new_user';
+            $this->load->view('cms/cms_template', $data);
+        }
 	
 	function is_logged_in()
 	{
@@ -90,6 +111,30 @@ class Cms extends CI_Controller {
             $this->bio_model->update_bio($data);
 
             redirect('cms/bio');
+        }
+
+        function do_add_user()
+        {
+            $this->load->model('alumni_model');
+            $this->load->model('utilities_model');
+
+            //Add user entry
+            $login = $this->input->post('login');
+            $data[0] = $login;
+            $data[1] = md5($this->input->post('password'));
+            $this->alumni_model->add_user($data);
+
+            //Get userid assigned by db
+            $userid = $this->utilities_model->get_userID_Login($login);
+
+            //Add alumni entry
+            $data[0] = $userid;
+            $data[1] = $this->input->post('gradyear');
+            $data[2] = $this->input->post('first');
+            $data[3] = $this->input->post('last');
+            $this->alumni_model->add_alumni($data);
+
+            redirect('cms/new_user');
         }
 }
 ?>

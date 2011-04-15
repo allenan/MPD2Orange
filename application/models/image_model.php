@@ -1,67 +1,68 @@
 <?php
 
 class Image_model extends CI_Model {
-	
-	function get_image_alum($alum_id)
-	{
-		$this->db->where('alumniid', $alum_id);
-		$this->db->select('imageURL');
-		$query = $this->db->get('images');
-		
-		return $query->row();
-	}
-	
-	function get_image_proj($proj_id)
-	{
-		$this->db->where('projid', $proj_id);
-		$this->db->select('imageURL');
-		$query = $this->db->get('images');
-		
-		return $query->result();
-	}
-	
-	function add_image($data) 
-	{
-		$this->db->insert('images', $data);
-		return;
-	}
-	
-	function update_image($data, $img_id) 
-	{
-		$this->db->where('imageID', $img_id);
-		$this->db->update('images', $data);
-	}
-	
-	function delete_image($img_id)
-	{
-		$this->db->where('imageID', $img_id);
-		$this->db->delete('images');
-	}
-		
-	function get_team_pictures($team_id)
-	{
-		$query = $this->db->query("select imageURL, alumniID from images where teamid = ?", array($team_id));
-		return $query->result();
-	}
-	function check_dups($data)
-	{
-		$this->db->where('AlumniID', $data['AlumniID']);
+
+    function get_image_alum($alum_id) {
+        $this->db->where('alumniid', $alum_id);
+        $this->db->select('imageURL');
+        $query = $this->db->get('images');
+
+        return $query->row();
+    }
+
+    function get_image_proj($proj_id) {
+        $this->db->where('projid', $proj_id);
+        $this->db->select('imageURL');
+        $query = $this->db->get('images');
+
+        return $query->result();
+    }
+
+    function get_url($data) {
+        $sql = "SELECT ImageURL FROM images WHERE ProjID = ? AND imgType = ? AND position = ?";
+        $q = $this->db->query($sql, $data);
+        foreach ($q->result() as $row) {
+            $retVal = $row->ImageURL;
+        }
+        return $retVal;
+    }
+
+    function add_image($data) {
+        $this->db->insert('images', $data);
+        return;
+    }
+
+    function update_image($data, $img_id) {
+        $this->db->where('imageID', $img_id);
+        $this->db->update('images', $data);
+    }
+
+    function delete_image($img_id) {
+        $this->db->where('imageID', $img_id);
+        $this->db->delete('images');
+    }
+
+    function get_team_pictures($team_id) {
+        $query = $this->db->query("select imageURL, alumniID from images where teamid = ?", array($team_id));
+        return $query->result();
+    }
+
+    function check_dups($data) {
+        $this->db->where('AlumniID', $data['AlumniID']);
         $this->db->where('ProjID', $data['ProjID']);
-		$this->db->where('position', $data['position']);
+        $this->db->where('position', $data['position']);
         $query = $this->db->get('images');
 
         if ($query->num_rows == 1) {
-			foreach($query->result() as $row)
-			{
-				$retval['url'] = $row->ImageURL;
-				$retval['id'] = $row->ImageID;
-				return $retval;
-			}
+            foreach ($query->result() as $row) {
+                $retval['url'] = $row->ImageURL;
+                $retval['id'] = $row->ImageID;
+                return $retval;
+            }
             //return true;
         }
-		
-		return false;
-		
-	}
-	
+
+        return false;
+    }
+
 }

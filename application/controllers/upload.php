@@ -39,7 +39,7 @@ class Upload extends CI_Controller {
 	            $this->load->model('image_model');
 	            $uploadData = $this->upload->data();
 	            $Login = $this->session->userdata('Login');
-	            $url = "uploads/" . $uploadData['file_name'];
+	            $url = $uploadData['file_name'];
 	            $description = $this->input->post('description');
 	            $type = $this->input->post('tab');
 	            $projID = $this->utilities_model->get_projID_Login($Login);
