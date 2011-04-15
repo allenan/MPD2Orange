@@ -80,6 +80,21 @@ class Site extends CI_Controller
 		$teamid = 0;
 		}
 		
+		if($query6 = $this->Image_model->get_proj_images_typed($proj_id, 2))
+		{
+			$data['proj_img_opp'] = $query6;
+		}
+		
+		if($query7 = $this->Image_model->get_proj_images_typed($proj_id, 3))
+		{
+			$data['proj_img_idea'] = $query7;
+		}
+		
+		if($query8 = $this->Image_model->get_proj_images_typed($proj_id, 4))
+		{
+			$data['proj_img_finalprod'] = $query8;
+		}
+		
 		$data['which_alumni'] = $this->Alumni_model->get_team_position($teamid, $alum_id);
 
 		if($query0 = $this->Alumni_model->bio_info_team($teamid))
@@ -87,9 +102,9 @@ class Site extends CI_Controller
 			$data['all_alum_data'] = $query0;
 		}
 					
-		if($query2 = $this->Image_model->get_image_proj($proj_id))
+		if($query2 = $this->Image_model->get_proj_images_typed($proj_id, 1)) //Get's summary images
 		{
-			$data['proj_img'] = $query2;
+			$data['proj_img_summary'] = $query2;
 		}
 		
 		if($query3 = $this->Project_model->get_project_info($proj_id))

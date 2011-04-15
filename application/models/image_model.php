@@ -2,6 +2,7 @@
 
 class Image_model extends CI_Model {
 
+
     function get_image_alum($alum_id) {
         $this->db->where('alumniid', $alum_id);
         $this->db->select('imageURL');
