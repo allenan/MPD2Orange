@@ -82,7 +82,12 @@ class Project_model extends CI_Model {
 		$query = $this->db->get('project');
 		return $query->row();
 	}
-	
+
+        function get_all_projects()
+        {
+            $query = $this->db->get('project');
+            return $query->result();
+        }
 	
 
 

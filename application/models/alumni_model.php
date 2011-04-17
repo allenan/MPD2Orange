@@ -63,5 +63,45 @@ class Alumni_model extends CI_Model {
         $q = $this->db->query($sql,$data);//$data: UserID, GraduationYear, FirstName, LastName
     }
 
+    function get_alumni()
+    {
+        $sql = "SELECT * FROM alumni;";
+        $q = $this->db->query($sql);
+        return $q->result();
+    }
+
+    function get_teams()
+    {
+        $sql = "SELECT * FROM alumni GROUP BY TeamID;";
+        $q = $this->db->query($sql);
+        return $q->result();
+    }
+
+    function get_next_teamID()
+    {
+        $sql = "SELECT max(TeamID)+1 as nextVal FROM alumni;";
+        $q = $this->db->query($sql);
+        if (!$q->first_row()->nextVal)
+        {
+            return 1;
+        }
+
+        return $q->first_row()->nextVal;
+    }
+
+    function update_teamID($AlumniID, $TeamID)
+    {
+        $sql = "UPDATE `mpd2`.`alumni` SET `TeamID` = ? WHERE `alumni`.`AlumniID` =?;";
+        $q = $this->db->query($sql,array($TeamID,$AlumniID));
+        return $q;
+    }
+
+    function update_projID($ProjID, $TeamID)
+    {
+        $sql = "UPDATE `mpd2`.`alumni` SET `ProjID` = ? WHERE `alumni`.`TeamID` =?;";
+        $q = $this->db->query($sql,array($ProjID,$TeamID));
+        return $q;
+    }
+
     
 }
