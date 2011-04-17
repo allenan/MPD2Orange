@@ -74,6 +74,35 @@ class Cms extends CI_Controller {
             $data['cms_main_content'] = 'new_user';
             $this->load->view('cms/cms_template', $data);
         }
+
+        function new_project(){
+            $data['cms_main_content'] = 'new_project';
+            $this->load->view('cms/cms_template', $data);
+        }
+
+        function teams(){
+            $this->load->model('alumni_model');
+            $data['alumni'] = $this->alumni_model->get_alumni();
+            $data['cms_main_content'] = 'teams';
+            $this->load->view('cms/cms_template', $data);
+        }
+
+        function projects(){
+            $this->load->model('alumni_model');
+            $this->load->model('project_model');
+            $data['teams'] = $this->alumni_model->get_teams();
+            $data['projects'] = $this->project_model->get_all_projects();
+            
+            $data['cms_main_content'] = 'projects';
+            $this->load->view('cms/cms_template', $data);
+        }
+
+        function view_users(){
+            $this->load->model('alumni_model');
+            $data['alumni'] = $this->alumni_model->get_alumni();
+            $data['cms_main_content'] = 'view_users';
+            $this->load->view('cms/cms_template', $data);
+        }
 	
 	function is_logged_in()
 	{
@@ -135,6 +164,43 @@ class Cms extends CI_Controller {
             $this->alumni_model->add_alumni($data);
 
             redirect('cms/new_user');
+        }
+
+        function do_add_project()
+        {
+            $this->load->model('project_model');
+
+            $data['ProjectName'] = $this->input->post('project_name');
+            $data['Year'] = $this->input->post('project_year');
+
+            $this->project_model->add_project($data);
+
+            redirect('cms/new_project');
+        }
+
+        function do_make_team()
+        {
+            $this->load->model('alumni_model');
+            $team_group = $this->input->post('team_group');
+            $next_teamID = $this->alumni_model->get_next_teamID();
+            
+            foreach ($team_group as $member)
+            {
+                $this->alumni_model->update_teamID($member,$next_teamID);
+            }
+
+            redirect('cms/teams');
+        }
+
+        function do_assign_project()
+        {
+            $this->load->model('alumni_model');
+            $team_group = $this->input->post('team_group');
+            $project_group = $this->input->post('project_group');
+
+            $this->alumni_model->update_projID($project_group[0],$team_group[0]);
+
+            redirect('cms/projects');
         }
 }
 ?>
