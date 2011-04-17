@@ -77,7 +77,6 @@ class Project_model extends CI_Model {
 	
 	function get_project_info($proj_id)
 	{
-		$this->db->select('projectname');
 		$this->db->where('projid', $proj_id);
 		$query = $this->db->get('project');
 		return $query->row();

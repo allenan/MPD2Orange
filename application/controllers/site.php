@@ -67,7 +67,7 @@ class Site extends CI_Controller
 		}
 		else
 		{
-			$data['start_val'] = 4;
+			$data['start_val'] = 5;
 		}
 		
 		

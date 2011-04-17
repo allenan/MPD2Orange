@@ -14,7 +14,7 @@ class Image_model extends CI_Model {
     function get_proj_images_typed($proj_id, $image_type) {
         $this->db->where('projid', $proj_id);
 		$this->db->where('imgtype',$image_type);
-        $this->db->select('imageURL');
+        $this->db->select('imageURL, description');
         $query = $this->db->get('images');
 
         return $query->result();
