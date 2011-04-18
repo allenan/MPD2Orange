@@ -36,30 +36,60 @@ class Cms extends CI_Controller {
 
     function tab0() {
         if ($this->session->userdata('Privileges')!=0) redirect ('cms');
+        $this->load->model('image_model');
+        $this->load->model('utilities_model');
+        $ProjID = $this->utilities_model->get_projID_Login($this->session->userdata('Login'));
+        $imgData[0] = $ProjID;
+        $imgData[1] = 0;
+        $data['descriptions'] = $this->image_model->get_descriptions($imgData);
         $data['cms_main_content'] = 'tab0';
         $this->load->view('cms/cms_template', $data);
     }
 
     function tab1() {
         if ($this->session->userdata('Privileges')!=0) redirect ('cms');
+        $this->load->model('image_model');
+        $this->load->model('utilities_model');
+        $ProjID = $this->utilities_model->get_projID_Login($this->session->userdata('Login'));
+        $imgData[0] = $ProjID;
+        $imgData[1] = 1;
+        $data['descriptions'] = $this->image_model->get_descriptions($imgData);
         $data['cms_main_content'] = 'tab1';
         $this->load->view('cms/cms_template', $data);
     }
 
     function tab2() {
         if ($this->session->userdata('Privileges')!=0) redirect ('cms');
+        $this->load->model('image_model');
+        $this->load->model('utilities_model');
+        $ProjID = $this->utilities_model->get_projID_Login($this->session->userdata('Login'));
+        $imgData[0] = $ProjID;
+        $imgData[1] = 2;
+        $data['descriptions'] = $this->image_model->get_descriptions($imgData);
         $data['cms_main_content'] = 'tab2';
         $this->load->view('cms/cms_template', $data);
     }
 
     function tab3() {
         if ($this->session->userdata('Privileges')!=0) redirect ('cms');
+        $this->load->model('image_model');
+        $this->load->model('utilities_model');
+        $ProjID = $this->utilities_model->get_projID_Login($this->session->userdata('Login'));
+        $imgData[0] = $ProjID;
+        $imgData[1] = 3;
+        $data['descriptions'] = $this->image_model->get_descriptions($imgData);
         $data['cms_main_content'] = 'tab3';
         $this->load->view('cms/cms_template', $data);
     }
 
     function tab4() {
         if ($this->session->userdata('Privileges')!=0) redirect ('cms');
+        $this->load->model('image_model');
+        $this->load->model('utilities_model');
+        $ProjID = $this->utilities_model->get_projID_Login($this->session->userdata('Login'));
+        $imgData[0] = $ProjID;
+        $imgData[1] = 4;
+        $data['descriptions'] = $this->image_model->get_descriptions($imgData);
         $data['cms_main_content'] = 'tab4';
         $this->load->view('cms/cms_template', $data);
     }

@@ -57,6 +57,20 @@ class Upload extends CI_Controller {
         $this->load->library('upload', $config);
 
         if (!$this->upload->do_upload()) {
+            //If there's no image file, but a description, go ahead and update just the description and skip the file upload
+            if ($this->input->post('description')) {
+                $this->load->model('utilities_model');
+                $this->load->model('image_model');
+                $data['description'] = $this->input->post('description');
+                $Login = $this->session->userdata('Login');
+                $ImgType = $this->input->post('tab');
+                $ProjID = $this->utilities_model->get_projID_Login($Login);
+                $position = $this->input->post('position');
+                $imgid = $this->image_model->get_imgid($ProjID, $ImgType, $position);
+                $this->image_model->update_image($data, $imgid);
+
+                redirect('cms/tab' . $ImgType);
+            }
             $error = array('error' => $this->upload->display_errors());
             echo $error['error'];
             //$this->load->view('upload_form', $error);

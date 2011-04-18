@@ -14,22 +14,30 @@
             $summaryFormData = array(
                 'name' => 'description',
                 'id' => 'description',
-                //'value' => $projectSummary,
                 'rows' => '8'
-            ); ?>
+            );
+            if(count($descriptions) > 0)
+            {
+                $summaryFormData['value'] = $descriptions[0]->description;
+            }
+            ?>
             <?php echo form_textarea($summaryFormData); ?>
         </fieldset>
         <?php echo form_hidden('tab', '0'); ?>
-		<?php echo form_hidden('position', '0'); ?>
-    </div>
-    <footer>
-        <div class="submit_link">
-            <input type="submit" value="Publish" class="alt_btn">
-<!--            <input type="submit" value="Reset">-->
-            <?php echo form_reset('reset', 'Reset');?>
-            <input type="button" value="Thumbnail" onClick="document.location.href='<?php echo base_url(); echo index_page(); echo '/'; ?>cms/tn/0/0'">
-            <input type="button" value="Delete" onClick="document.location.href='<?php echo base_url(); echo index_page(); echo '/'; ?>upload/delete/0/0'">
-            <?php echo form_close(); ?>
+        <?php echo form_hidden('position', '0'); ?>
+        </div>
+        <footer>
+            <div class="submit_link">
+                <input type="submit" value="Publish" class="alt_btn">
+    <!--            <input type="submit" value="Reset">-->
+            <?php echo form_reset('reset', 'Reset'); ?>
+            <input type="button" value="Thumbnail" onClick="document.location.href='<?php echo base_url();
+            echo index_page();
+            echo '/'; ?>cms/tn/0/0'">
+            <input type="button" value="Delete" onClick="document.location.href='<?php echo base_url();
+            echo index_page();
+            echo '/'; ?>upload/delete/0/0'">
+<?php echo form_close(); ?>
         </div>
     </footer>
 </article>
@@ -37,41 +45,49 @@
 <article class="module width_full">
     <header><h3>Edit Summary Content</h3></header>
     <div class="module_content">
-        <?php echo form_open_multipart('upload/do_upload'); ?>
-        <fieldset>
-            <label>Image 2*</label>
-            <input type="file" name="userfile">
-        </fieldset>
+<?php echo form_open_multipart('upload/do_upload'); ?>
+            <fieldset>
+                <label>Image 2*</label>
+                <input type="file" name="userfile">
+            </fieldset>
 
-        <fieldset>
-            <label>Summary Text</label>
+            <fieldset>
+                <label>Summary Text</label>
             <?php
             $summaryFormData = array(
                 'name' => 'description',
                 'id' => 'description',
-                //'value' => $projectSummary,
                 'rows' => '8'
-            ); ?>
-            <?php echo form_textarea($summaryFormData); ?>
-        </fieldset>
-        <?php echo form_hidden('tab', '0'); ?>
-		<?php echo form_hidden('position', '1'); ?>
-    </div>
-    <footer>
-        <div class="submit_link">
-            <input type="submit" value="Publish" class="alt_btn">
-            <input type="submit" value="Reset">
-            <input type="button" value="Thumbnail" onClick="document.location.href='<?php echo base_url(); echo index_page(); echo '/'; ?>cms/tn/0/1'">
-            <input type="button" value="Delete" onClick="document.location.href='<?php echo base_url(); echo index_page(); echo '/'; ?>upload/delete/0/1'">
-            <?php echo form_close(); ?>
+            );
+            if(count($descriptions) > 1)
+            {
+                $summaryFormData['value'] = $descriptions[1]->description;
+            }
+            ?>
+<?php echo form_textarea($summaryFormData); ?>
+            </fieldset>
+<?php echo form_hidden('tab', '0'); ?>
+<?php echo form_hidden('position', '1'); ?>
         </div>
-    </footer>
-</article>
+        <footer>
+            <div class="submit_link">
+                <input type="submit" value="Publish" class="alt_btn">
+                <input type="submit" value="Reset">
+                <input type="button" value="Thumbnail" onClick="document.location.href='<?php echo base_url();
+            echo index_page();
+            echo '/'; ?>cms/tn/0/1'">
+            <input type="button" value="Delete" onClick="document.location.href='<?php echo base_url();
+            echo index_page();
+            echo '/'; ?>upload/delete/0/1'">
+        <?php echo form_close(); ?>
+            </div>
+        </footer>
+    </article>
 
-<article class="module width_full">
-    <header><h3>Edit Summary Content</h3></header>
-    <div class="module_content">
-        <?php echo form_open_multipart('upload/do_upload'); ?>
+    <article class="module width_full">
+        <header><h3>Edit Summary Content</h3></header>
+        <div class="module_content">
+            <?php echo form_open_multipart('upload/do_upload'); ?>
         <fieldset>
             <label>Image 3*</label>
             <input type="file" name="userfile">
@@ -83,29 +99,36 @@
             $summaryFormData = array(
                 'name' => 'description',
                 'id' => 'description',
-                //'value' => $projectSummary,
                 'rows' => '8'
-            ); ?>
-            <?php echo form_textarea($summaryFormData); ?>
-        </fieldset>
-        <?php echo form_hidden('tab', '0'); ?>
-		<?php echo form_hidden('position', '2'); ?>
+            );
+            if (count($descriptions) > 2) {
+                $summaryFormData['value'] = $descriptions[2]->description;
+            }
+            ?>
+<?php echo form_textarea($summaryFormData); ?>
+            </fieldset>
+            <?php echo form_hidden('tab', '0'); ?>
+<?php echo form_hidden('position', '2'); ?>
     </div>
     <footer>
         <div class="submit_link">
             <input type="submit" value="Publish" class="alt_btn">
             <input type="submit" value="Reset">
-            <input type="button" value="Thumbnail" onClick="document.location.href='<?php echo base_url(); echo index_page(); echo '/'; ?>cms/tn/0/2'">
-            <input type="button" value="Delete" onClick="document.location.href='<?php echo base_url(); echo index_page(); echo '/'; ?>upload/delete/0/2'">
-            <?php echo form_close(); ?>
-        </div>
-    </footer>
-</article>
+            <input type="button" value="Thumbnail" onClick="document.location.href='<?php echo base_url();
+            echo index_page();
+            echo '/'; ?>cms/tn/0/2'">
+                <input type="button" value="Delete" onClick="document.location.href='<?php echo base_url();
+            echo index_page();
+            echo '/'; ?>upload/delete/0/2'">
+<?php echo form_close(); ?>
+            </div>
+        </footer>
+    </article>
 
-<article class="module width_full">
-    <header><h3>Edit Summary Content</h3></header>
-    <div class="module_content">
-        <?php echo form_open_multipart('upload/do_upload'); ?>
+    <article class="module width_full">
+        <header><h3>Edit Summary Content</h3></header>
+        <div class="module_content">
+            <?php echo form_open_multipart('upload/do_upload'); ?>
         <fieldset>
             <label>Image 4*</label>
             <input type="file" name="userfile">
@@ -117,21 +140,28 @@
             $summaryFormData = array(
                 'name' => 'description',
                 'id' => 'description',
-                //'value' => $projectSummary,
                 'rows' => '8'
-            ); ?>
-            <?php echo form_textarea($summaryFormData); ?>
+            );
+            if (count($descriptions) > 3) {
+                $summaryFormData['value'] = $descriptions[3]->description;
+            }
+            ?>
+<?php echo form_textarea($summaryFormData); ?>
         </fieldset>
-        <?php echo form_hidden('tab', '0'); ?>
-		<?php echo form_hidden('position', '3'); ?>
+<?php echo form_hidden('tab', '0'); ?>
+<?php echo form_hidden('position', '3'); ?>
     </div>
     <footer>
         <div class="submit_link">
             <input type="submit" value="Publish" class="alt_btn">
             <input type="submit" value="Reset">
-            <input type="button" value="Thumbnail" onClick="document.location.href='<?php echo base_url(); echo index_page(); echo '/'; ?>cms/tn/0/3'">
-            <input type="button" value="Delete" onClick="document.location.href='<?php echo base_url(); echo index_page(); echo '/'; ?>upload/delete/0/3'">
-            <?php echo form_close(); ?>
+            <input type="button" value="Thumbnail" onClick="document.location.href='<?php echo base_url();
+            echo index_page();
+            echo '/'; ?>cms/tn/0/3'">
+            <input type="button" value="Delete" onClick="document.location.href='<?php echo base_url();
+            echo index_page();
+            echo '/'; ?>upload/delete/0/3'">
+<?php echo form_close(); ?>
         </div>
     </footer>
 </article>

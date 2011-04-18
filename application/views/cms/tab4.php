@@ -14,7 +14,7 @@
             $summaryFormData = array(
                 'name' => 'description',
                 'id' => 'description',
-                //'value' => $projectSummary,
+                'value' => $descriptions[0]->description,
                 'rows' => '8'
             ); ?>
             <?php echo form_textarea($summaryFormData); ?>
@@ -48,7 +48,7 @@
             $summaryFormData = array(
                 'name' => 'description',
                 'id' => 'description',
-                //'value' => $projectSummary,
+                'value' => $descriptions[1]->description,
                 'rows' => '8'
             ); ?>
             <?php echo form_textarea($summaryFormData); ?>
@@ -82,7 +82,7 @@
             $summaryFormData = array(
                 'name' => 'description',
                 'id' => 'description',
-                //'value' => $projectSummary,
+                'value' => $descriptions[2]->description,
                 'rows' => '8'
             ); ?>
             <?php echo form_textarea($summaryFormData); ?>
@@ -116,7 +116,7 @@
             $summaryFormData = array(
                 'name' => 'description',
                 'id' => 'description',
-                //'value' => $projectSummary,
+                'value' => $descriptions[3]->description,
                 'rows' => '8'
             ); ?>
             <?php echo form_textarea($summaryFormData); ?>

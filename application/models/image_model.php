@@ -29,6 +29,24 @@ class Image_model extends CI_Model {
         return $retVal;
     }
 
+    function get_descriptions($data) {
+        $sql = "SELECT position, description FROM images WHERE ProjID = ? AND imgType = ?;";
+        $q = $this->db->query($sql, $data);
+
+        return $q->result();
+    }
+
+    function get_imgid($ProjID, $ImgType, $position)
+    {
+        $this->db->where('ProjID', $ProjID);
+        $this->db->where('imgType', $ImgType);
+        $this->db->where('position', $position);
+        $this->db->select('ImageID');
+        $q = $this->db->get('images');
+
+        return $q->first_row()->ImageID;
+    }
+
     function add_image($data) {
         $this->db->insert('images', $data);
         return;
