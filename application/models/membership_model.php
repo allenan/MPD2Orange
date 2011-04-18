@@ -20,4 +20,17 @@ class Membership_model extends CI_Model {
         }
     }
 
+    function update($UserID,$data)
+    {
+        $this->db->where('UserID', $UserID);
+        $this->db->update('users', $data);
+    }
+
+    function get_login($UserID)
+    {
+        $this->db->where('UserID', $UserID);
+        $query = $this->db->get('users');
+        return $query->first_row()->Login;
+    }
+
 }

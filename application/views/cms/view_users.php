@@ -19,7 +19,10 @@
                     <td><?php echo $row->GraduationYear; ?></td>
                     <td><?php echo $row->TeamID; ?></td>
                     <td><?php echo $row->ProjID; ?></td>
-                    <td><input type="image" src="<?php echo base_url() ?>images/icn_edit.png" title="Edit"><input type="image" src="<?php echo base_url() ?>images/icn_trash.png" title="Trash"></td>
+                    <td>
+                        <input type="image" src="<?php echo base_url() ?>images/icn_edit.png" title="Edit" onClick="document.location.href='<?php echo base_url(); echo index_page(); echo '/cms/edit/'; echo $row->UserID; ?>'" >
+                        <input type="image" src="<?php echo base_url() ?>images/icn_trash.png" title="Trash" onClick="document.location.href='<?php echo base_url(); echo index_page(); echo '/cms/delete/'; echo $row->UserID; ?>'" >
+                    </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

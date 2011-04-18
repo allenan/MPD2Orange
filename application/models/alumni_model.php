@@ -70,6 +70,13 @@ class Alumni_model extends CI_Model {
         return $q->result();
     }
 
+    function get_alumni_userid($UserID)
+    {
+        $sql = "SELECT * FROM alumni WHERE UserID = ?;";
+        $q = $this->db->query($sql,$UserID);
+        return $q->first_row();
+    }
+
     function get_teams()
     {
         $sql = "SELECT * FROM alumni GROUP BY TeamID;";
@@ -100,6 +107,30 @@ class Alumni_model extends CI_Model {
     {
         $sql = "UPDATE `mpd2`.`alumni` SET `ProjID` = ? WHERE `alumni`.`TeamID` =?;";
         $q = $this->db->query($sql,array($ProjID,$TeamID));
+        return $q;
+    }
+
+//    function update_name_year($First, $Last, $Year)
+//    {
+//        $sql = "UPDATE `mpd2`.`alumni` SET `FirstName` = ?, `LastName` = ?, `GraduationYear` = ?  WHERE `alumni`.`UserID` = ?;";
+//        $q = $this->db->query($sql,array($First,$Last, $Year));
+//        return $q;
+//    }
+
+    function update($UserID, $data)
+    {
+        $this->db->where('UserID', $UserID);
+        $this->db->update('alumni', $data); 
+    }
+
+    function delete_user($UserID)
+    {
+        $sql = "DELETE FROM `mpd2`.`alumni` WHERE `alumni`.`UserID` = ?;";
+        $q = $this->db->query($sql,$UserID);
+
+        $sql = "DELETE FROM `mpd2`.`users` WHERE `users`.`UserID` = ?;";
+        $q = $this->db->query($sql,$UserID);
+
         return $q;
     }
 

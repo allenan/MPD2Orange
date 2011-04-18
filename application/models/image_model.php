@@ -50,7 +50,8 @@ class Image_model extends CI_Model {
     }
 
     function check_dups($data) {
-        $this->db->where('AlumniID', $data['AlumniID']);
+        //$this->db->where('AlumniID', $data['AlumniID']);
+        $this->db->where('imgType', $data['imgType']);
         $this->db->where('ProjID', $data['ProjID']);
         $this->db->where('position', $data['position']);
         $query = $this->db->get('images');

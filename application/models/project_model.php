@@ -2,7 +2,6 @@
 
 class Project_model extends CI_Model {
 
-
     function get_projects($proj_id) {
         $this->db->where('projid', $proj_id);
         $query = $this->db->get('project');
@@ -22,7 +21,7 @@ class Project_model extends CI_Model {
             `Summary` = ?
             WHERE `project`.`ProjID` =(select projID from alumni where userID =
             (select userID from users where Login = ?))";
-        $this->db->query($sql,$data);
+        $this->db->query($sql, $data);
     }
 
     function delete_project($proj_id) {
@@ -34,7 +33,7 @@ class Project_model extends CI_Model {
         $sql = "select projectName from project
             where projID = (select projID from alumni where userID =
             (select userID from users where Login = ?))";
-        $q = $this->db->query($sql,$Login);
+        $q = $this->db->query($sql, $Login);
         foreach ($q->result() as $row) {
             $retVal = $row->projectName;
         }
@@ -45,49 +44,55 @@ class Project_model extends CI_Model {
         $sql = "select summary from project
             where projID = (select projID from alumni where userID =
             (select userID from users where Login = ?))";
-        $q = $this->db->query($sql,$Login);
+        $q = $this->db->query($sql, $Login);
         foreach ($q->result() as $row) {
             $retVal = $row->summary;
         }
         return $retVal;
     }
 
-	function get_projects_with_image()
-	{
-		$query = $this->db->query('select * from images right outer join project on images.projID = project.projID where imgtype = 1');
-		return $query->result();
-	}
-	
-	function get_project_years()
-	{
-		$this->db->select('year');
-		$query = $this->db->get('project');
-		return $query->result();
-	}
-	
-	function get_first_member($proj_id)
-	{
-		$this->db->select('alumniID');
-		$this->db->where('projid', $proj_id);
-		$this->db->order_by("alumniID", "asc");
-		$query = $this->db->get('alumni');
-		return $query->first_row();
-		
-	}
-	
-	function get_project_info($proj_id)
-	{
-		$this->db->where('projid', $proj_id);
-		$query = $this->db->get('project');
-		return $query->row();
-	}
+    function get_projects_login($Login) {
+        $sql = "select * from project
+            where projID = (select projID from alumni where userID =
+            (select userID from users where Login = ?))";
+        $q = $this->db->query($sql, $Login);
 
-        function get_all_projects()
-        {
-            $query = $this->db->get('project');
-            return $query->result();
-        }
-	
+        return $q->first_row();
+    }
 
+    function update_project_all($ProjID, $data) {
+        $this->db->where('ProjID', $ProjID);
+        $this->db->update('project', $data);
+    }
+
+    function get_projects_with_image() {
+        $query = $this->db->query('select * from images right outer join project on images.projID = project.projID where imgtype = 1');
+        return $query->result();
+    }
+
+    function get_project_years() {
+        $this->db->select('year');
+        $query = $this->db->get('project');
+        return $query->result();
+    }
+
+    function get_first_member($proj_id) {
+        $this->db->select('alumniID');
+        $this->db->where('projid', $proj_id);
+        $this->db->order_by("alumniID", "asc");
+        $query = $this->db->get('alumni');
+        return $query->first_row();
+    }
+
+    function get_project_info($proj_id) {
+        $this->db->where('projid', $proj_id);
+        $query = $this->db->get('project');
+        return $query->row();
+    }
+
+    function get_all_projects() {
+        $query = $this->db->get('project');
+        return $query->result();
+    }
 
 }
