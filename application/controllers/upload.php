@@ -128,7 +128,7 @@ class Upload extends CI_Controller {
             $this->image_model->delete_image($dup_info['id']);
         }
 
-        redirect('cms/tab' . $type);
+        redirect('cms/tab' . $tab);
     }
 
 }

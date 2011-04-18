@@ -69,7 +69,7 @@ class Project_model extends CI_Model {
     }
 
     function get_projects_with_image() {
-        $query = $this->db->query('select * from images right outer join project on images.projID = project.projID where imgtype = 1');
+        $query = $this->db->query('select * from images right outer join project on images.projID = project.projID where imgtype = 0');
         return $query->result();
     }
 

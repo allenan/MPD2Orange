@@ -36,31 +36,56 @@ class Cms extends CI_Controller {
 
     function tab0() {
         if ($this->session->userdata('Privileges')!=0) redirect ('cms');
+		$this->load->model('project_model');
+		$this->load->model('image_model');
+		$Login = $this->session->userdata('Login');
         $data['cms_main_content'] = 'tab0';
+		$proj_id = $this->project_model->get_projects_login($Login)->ProjID;
+		$data['current_info'] = $this->image_model->get_proj_images_typed( $proj_id ,0);
         $this->load->view('cms/cms_template', $data);
     }
 
     function tab1() {
         if ($this->session->userdata('Privileges')!=0) redirect ('cms');
-        $data['cms_main_content'] = 'tab1';
+		$this->load->model('project_model');
+		$this->load->model('image_model');
+        $Login = $this->session->userdata('Login');
+		$proj_id = $this->project_model->get_projects_login($Login)->ProjID;
+		$data['cms_main_content'] = 'tab1';
+		$data['current_info'] = $this->image_model->get_proj_images_typed( $proj_id ,1);
         $this->load->view('cms/cms_template', $data);
     }
 
     function tab2() {
         if ($this->session->userdata('Privileges')!=0) redirect ('cms');
+		$this->load->model('project_model');
+		$this->load->model('image_model');
+        $Login = $this->session->userdata('Login');
+		$proj_id = $this->project_model->get_projects_login($Login)->ProjID;
+		$data['current_info'] = $this->image_model->get_proj_images_typed( $proj_id ,2);
         $data['cms_main_content'] = 'tab2';
         $this->load->view('cms/cms_template', $data);
     }
 
     function tab3() {
         if ($this->session->userdata('Privileges')!=0) redirect ('cms');
+		$this->load->model('project_model');
+		$this->load->model('image_model');
+        $Login = $this->session->userdata('Login');
+		$proj_id = $this->project_model->get_projects_login($Login)->ProjID;
         $data['cms_main_content'] = 'tab3';
+		$data['current_info'] = $this->image_model->get_proj_images_typed( $proj_id ,3);
         $this->load->view('cms/cms_template', $data);
     }
 
     function tab4() {
         if ($this->session->userdata('Privileges')!=0) redirect ('cms');
+		$this->load->model('project_model');
+		$this->load->model('image_model');
+        $Login = $this->session->userdata('Login');
+		$proj_id = $this->project_model->get_projects_login($Login)->ProjID;
         $data['cms_main_content'] = 'tab4';
+		$data['current_info'] = $this->image_model->get_proj_images_typed( $proj_id ,4);
         $this->load->view('cms/cms_template', $data);
     }
 

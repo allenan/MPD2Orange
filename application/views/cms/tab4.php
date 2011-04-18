@@ -5,6 +5,9 @@
         <?php echo form_open_multipart('upload/do_upload'); ?>
         <fieldset>
             <label>Image 1*</label>
+			<?php if(isset($current_info[0])): echo "Current Image: ".$current_info[0]->imageURL;
+			else : echo "No Image set.";
+			endif; ?> 
             <input type="file" name="userfile">
         </fieldset>
 
@@ -16,7 +19,10 @@
                 'id' => 'description',
                 //'value' => $projectSummary,
                 'rows' => '8'
-            ); ?>
+            );
+			if(isset($current_info[0])): $summaryFormData['value'] = $current_info[0]->description;
+			endif;
+			?>
             <?php echo form_textarea($summaryFormData); ?>
         </fieldset>
         <?php echo form_hidden('tab', '4'); ?>
@@ -39,6 +45,9 @@
         <?php echo form_open_multipart('upload/do_upload'); ?>
         <fieldset>
             <label>Image 2*</label>
+			<?php if(isset($current_info[1])): echo "Current Image: ".$current_info[1]->imageURL;
+			else : echo "No Image set.";
+			endif; ?> 
             <input type="file" name="userfile">
         </fieldset>
 
@@ -50,7 +59,9 @@
                 'id' => 'description',
                 //'value' => $projectSummary,
                 'rows' => '8'
-            ); ?>
+            );
+			if(isset($current_info[1])): $summaryFormData['value'] = $current_info[1]->description;
+			endif;?>
             <?php echo form_textarea($summaryFormData); ?>
         </fieldset>
         <?php echo form_hidden('tab', '4'); ?>
@@ -73,6 +84,9 @@
         <?php echo form_open_multipart('upload/do_upload'); ?>
         <fieldset>
             <label>Image 3*</label>
+			<?php if(isset($current_info[2])): echo "Current Image: ".$current_info[2]->imageURL;
+			else : echo "No Image set.";
+			endif; ?> 
             <input type="file" name="userfile">
         </fieldset>
 
@@ -84,7 +98,9 @@
                 'id' => 'description',
                 //'value' => $projectSummary,
                 'rows' => '8'
-            ); ?>
+            );
+			if(isset($current_info[2])): $summaryFormData['value'] = $current_info[2]->description;
+			endif;?>
             <?php echo form_textarea($summaryFormData); ?>
         </fieldset>
         <?php echo form_hidden('tab', '4'); ?>
@@ -107,6 +123,9 @@
         <?php echo form_open_multipart('upload/do_upload'); ?>
         <fieldset>
             <label>Image 4*</label>
+			<?php if(isset($current_info[3])): echo "Current Image: ".$current_info[3]->imageURL;
+			else : echo "No Image set.";
+			endif; ?> 
             <input type="file" name="userfile">
         </fieldset>
 
@@ -118,7 +137,9 @@
                 'id' => 'description',
                 //'value' => $projectSummary,
                 'rows' => '8'
-            ); ?>
+            );
+			if(isset($current_info[3])): $summaryFormData['value'] = $current_info[3]->description;
+			endif;?>
             <?php echo form_textarea($summaryFormData); ?>
         </fieldset>
         <?php echo form_hidden('tab', '4'); ?>

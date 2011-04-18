@@ -23,6 +23,7 @@ class Image_model extends CI_Model {
     function get_url($data) {
         $sql = "SELECT ImageURL FROM images WHERE ProjID = ? AND imgType = ? AND position = ?";
         $q = $this->db->query($sql, $data);
+		$retVal = null;
         foreach ($q->result() as $row) {
             $retVal = $row->ImageURL;
         }
