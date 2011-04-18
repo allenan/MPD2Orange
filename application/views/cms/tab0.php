@@ -28,6 +28,7 @@
 <!--            <input type="submit" value="Reset">-->
             <?php echo form_reset('reset', 'Reset');?>
             <input type="button" value="Thumbnail" onClick="document.location.href='<?php echo base_url(); echo index_page(); echo '/'; ?>cms/tn/0/0'">
+            <input type="button" value="Delete" onClick="document.location.href='<?php echo base_url(); echo index_page(); echo '/'; ?>upload/delete/0/0'">
             <?php echo form_close(); ?>
         </div>
     </footer>
@@ -61,6 +62,7 @@
             <input type="submit" value="Publish" class="alt_btn">
             <input type="submit" value="Reset">
             <input type="button" value="Thumbnail" onClick="document.location.href='<?php echo base_url(); echo index_page(); echo '/'; ?>cms/tn/0/1'">
+            <input type="button" value="Delete" onClick="document.location.href='<?php echo base_url(); echo index_page(); echo '/'; ?>upload/delete/0/1'">
             <?php echo form_close(); ?>
         </div>
     </footer>
@@ -94,6 +96,7 @@
             <input type="submit" value="Publish" class="alt_btn">
             <input type="submit" value="Reset">
             <input type="button" value="Thumbnail" onClick="document.location.href='<?php echo base_url(); echo index_page(); echo '/'; ?>cms/tn/0/2'">
+            <input type="button" value="Delete" onClick="document.location.href='<?php echo base_url(); echo index_page(); echo '/'; ?>upload/delete/0/2'">
             <?php echo form_close(); ?>
         </div>
     </footer>
@@ -127,6 +130,7 @@
             <input type="submit" value="Publish" class="alt_btn">
             <input type="submit" value="Reset">
             <input type="button" value="Thumbnail" onClick="document.location.href='<?php echo base_url(); echo index_page(); echo '/'; ?>cms/tn/0/3'">
+            <input type="button" value="Delete" onClick="document.location.href='<?php echo base_url(); echo index_page(); echo '/'; ?>upload/delete/0/3'">
             <?php echo form_close(); ?>
         </div>
     </footer>

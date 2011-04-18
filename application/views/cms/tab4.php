@@ -25,7 +25,9 @@
     <footer>
         <div class="submit_link">
             <input type="submit" value="Publish" class="alt_btn">
-            <input type="submit" value="Reset">
+            <?php echo form_reset('reset', 'Reset');?>
+            <input type="button" value="Thumbnail" onClick="document.location.href='<?php echo base_url(); echo index_page(); echo '/'; ?>cms/tn/4/0'">
+            <input type="button" value="Delete" onClick="document.location.href='<?php echo base_url(); echo index_page(); echo '/'; ?>upload/delete/4/0'">
             <?php echo form_close(); ?>
         </div>
     </footer>
@@ -57,7 +59,9 @@
     <footer>
         <div class="submit_link">
             <input type="submit" value="Publish" class="alt_btn">
-            <input type="submit" value="Reset">
+            <?php echo form_reset('reset', 'Reset');?>
+            <input type="button" value="Thumbnail" onClick="document.location.href='<?php echo base_url(); echo index_page(); echo '/'; ?>cms/tn/4/1'">
+            <input type="button" value="Delete" onClick="document.location.href='<?php echo base_url(); echo index_page(); echo '/'; ?>upload/delete/4/1'">
             <?php echo form_close(); ?>
         </div>
     </footer>
@@ -89,7 +93,9 @@
     <footer>
         <div class="submit_link">
             <input type="submit" value="Publish" class="alt_btn">
-            <input type="submit" value="Reset">
+            <?php echo form_reset('reset', 'Reset');?>
+            <input type="button" value="Thumbnail" onClick="document.location.href='<?php echo base_url(); echo index_page(); echo '/'; ?>cms/tn/4/2'">
+            <input type="button" value="Delete" onClick="document.location.href='<?php echo base_url(); echo index_page(); echo '/'; ?>upload/delete/4/2'">
             <?php echo form_close(); ?>
         </div>
     </footer>
@@ -121,7 +127,9 @@
     <footer>
         <div class="submit_link">
             <input type="submit" value="Publish" class="alt_btn">
-            <input type="submit" value="Reset">
+            <?php echo form_reset('reset', 'Reset');?>
+            <input type="button" value="Thumbnail" onClick="document.location.href='<?php echo base_url(); echo index_page(); echo '/'; ?>cms/tn/4/3'">
+            <input type="button" value="Delete" onClick="document.location.href='<?php echo base_url(); echo index_page(); echo '/'; ?>upload/delete/4/3'">
             <?php echo form_close(); ?>
         </div>
     </footer>

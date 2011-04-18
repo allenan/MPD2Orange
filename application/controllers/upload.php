@@ -87,7 +87,10 @@ class Upload extends CI_Controller {
             if ($dup_info = $this->image_model->check_dups($dataDB)) {
                 //If there is, delete it (maybe should prompt user in a later release)
                 //Delete pic from filesystem by following url
-                unlink($dup_info['url']);
+                unlink('uploads/' . $dup_info['url']);
+                if (file_exists('uploads/tn/' . $dup_info['url'])) {
+                    unlink('uploads/tn/' . $dup_info['url']);
+                }
                 //die($dup_info['url']);
                 //delete entry in images table
                 $this->image_model->delete_image($dup_info['id']);
@@ -101,6 +104,31 @@ class Upload extends CI_Controller {
 
             //$this->load->view('upload_success', $data);
         }
+    }
+
+    function delete($tab, $pos) {
+        $this->load->model('utilities_model');
+        $this->load->model('image_model');
+
+        $Login = $this->session->userdata('Login');
+
+        $data['ProjID'] = $this->utilities_model->get_projID_Login($Login);
+        $data['imgType'] = $tab;
+        $data['position'] = $pos;
+
+        if ($dup_info = $this->image_model->check_dups($data)) {
+            //If there is, delete it (maybe should prompt user in a later release)
+            //Delete pic from filesystem by following url
+            unlink('uploads/' . $dup_info['url']);
+            if (file_exists('uploads/tn/' . $dup_info['url'])) {
+                unlink('uploads/tn/' . $dup_info['url']);
+            }
+            //die($dup_info['url']);
+            //delete entry in images table
+            $this->image_model->delete_image($dup_info['id']);
+        }
+
+        redirect('cms/tab' . $type);
     }
 
 }
