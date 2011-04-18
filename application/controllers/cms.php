@@ -15,7 +15,8 @@ class Cms extends CI_Controller {
     }
 
     function bio() {
-        if ($this->session->userdata('Privileges')!=0) redirect ('cms');
+        if ($this->session->userdata('Privileges') != 0)
+            redirect('cms');
         $this->load->model('bio_model');
         $Login = $this->session->userdata('Login');
         $data['cms_main_content'] = 'bio';
@@ -24,78 +25,38 @@ class Cms extends CI_Controller {
     }
 
     function project() {
-        if ($this->session->userdata('Privileges')!=0) redirect ('cms');
+        if ($this->session->userdata('Privileges') != 0)
+            redirect('cms');
         $this->load->model('project_model');
         $Login = $this->session->userdata('Login');
         $data['cms_main_content'] = 'project_settings';
         $data['project_info'] = $this->project_model->get_projects_login($Login);
-//            $data['projectName'] = $this->project_model->get_projectName($Login);
-//            $data['projectSummary'] = $this->project_model->get_summary($Login);
         $this->load->view('cms/cms_template', $data);
     }
 
-    function tab0() {
-        if ($this->session->userdata('Privileges')!=0) redirect ('cms');
+    function tab($index)
+    {
+        if ($this->session->userdata('Privileges') != 0)
+            redirect('cms');
+        
+        if (($index < 0) || ($index > 4))
+            redirect('cms');
+        
+        $this->load->model('project_model');
         $this->load->model('image_model');
-        $this->load->model('utilities_model');
-        $ProjID = $this->utilities_model->get_projID_Login($this->session->userdata('Login'));
-        $imgData[0] = $ProjID;
-        $imgData[1] = 0;
-        $data['descriptions'] = $this->image_model->get_descriptions($imgData);
-        $data['cms_main_content'] = 'tab0';
+        $Login = $this->session->userdata('Login');
+
+        $data['cms_main_content'] = 'tab';
+        $data['tab_index'] = $index;
+        $proj_id = $this->project_model->get_projects_login($Login)->ProjID;
+        $data['current_info'] = $this->image_model->get_proj_images_typed($proj_id, $index);
         $this->load->view('cms/cms_template', $data);
     }
 
-    function tab1() {
-        if ($this->session->userdata('Privileges')!=0) redirect ('cms');
-        $this->load->model('image_model');
-        $this->load->model('utilities_model');
-        $ProjID = $this->utilities_model->get_projID_Login($this->session->userdata('Login'));
-        $imgData[0] = $ProjID;
-        $imgData[1] = 1;
-        $data['descriptions'] = $this->image_model->get_descriptions($imgData);
-        $data['cms_main_content'] = 'tab1';
-        $this->load->view('cms/cms_template', $data);
-    }
-
-    function tab2() {
-        if ($this->session->userdata('Privileges')!=0) redirect ('cms');
-        $this->load->model('image_model');
-        $this->load->model('utilities_model');
-        $ProjID = $this->utilities_model->get_projID_Login($this->session->userdata('Login'));
-        $imgData[0] = $ProjID;
-        $imgData[1] = 2;
-        $data['descriptions'] = $this->image_model->get_descriptions($imgData);
-        $data['cms_main_content'] = 'tab2';
-        $this->load->view('cms/cms_template', $data);
-    }
-
-    function tab3() {
-        if ($this->session->userdata('Privileges')!=0) redirect ('cms');
-        $this->load->model('image_model');
-        $this->load->model('utilities_model');
-        $ProjID = $this->utilities_model->get_projID_Login($this->session->userdata('Login'));
-        $imgData[0] = $ProjID;
-        $imgData[1] = 3;
-        $data['descriptions'] = $this->image_model->get_descriptions($imgData);
-        $data['cms_main_content'] = 'tab3';
-        $this->load->view('cms/cms_template', $data);
-    }
-
-    function tab4() {
-        if ($this->session->userdata('Privileges')!=0) redirect ('cms');
-        $this->load->model('image_model');
-        $this->load->model('utilities_model');
-        $ProjID = $this->utilities_model->get_projID_Login($this->session->userdata('Login'));
-        $imgData[0] = $ProjID;
-        $imgData[1] = 4;
-        $data['descriptions'] = $this->image_model->get_descriptions($imgData);
-        $data['cms_main_content'] = 'tab4';
-        $this->load->view('cms/cms_template', $data);
-    }
-
+  
     function tn($tab, $pos) {
-        if ($this->session->userdata('Privileges')!=0) redirect ('cms');
+        if ($this->session->userdata('Privileges') != 0)
+            redirect('cms');
         $this->load->model('utilities_model');
 
 
@@ -111,13 +72,15 @@ class Cms extends CI_Controller {
     }
 
     function new_user() {
-        if ($this->session->userdata('Privileges')!=1) redirect ('cms');
+        if ($this->session->userdata('Privileges') != 1)
+            redirect('cms');
         $data['cms_main_content'] = 'new_user';
         $this->load->view('cms/cms_template', $data);
     }
 
     function edit($UserID) {
-        if ($this->session->userdata('Privileges')!=1) redirect ('cms');
+        if ($this->session->userdata('Privileges') != 1)
+            redirect('cms');
         $this->load->model('alumni_model');
         $this->load->model('membership_model');
         $data['user_info'] = $this->alumni_model->get_alumni_userid($UserID);
@@ -127,13 +90,15 @@ class Cms extends CI_Controller {
     }
 
     function new_project() {
-        if ($this->session->userdata('Privileges')!=1) redirect ('cms');
+        if ($this->session->userdata('Privileges') != 1)
+            redirect('cms');
         $data['cms_main_content'] = 'new_project';
         $this->load->view('cms/cms_template', $data);
     }
 
     function teams() {
-        if ($this->session->userdata('Privileges')!=1) redirect ('cms');
+        if ($this->session->userdata('Privileges') != 1)
+            redirect('cms');
         $this->load->model('alumni_model');
         $data['alumni'] = $this->alumni_model->get_alumni();
         $data['cms_main_content'] = 'teams';
@@ -141,7 +106,8 @@ class Cms extends CI_Controller {
     }
 
     function projects() {
-        if ($this->session->userdata('Privileges')!=1) redirect ('cms');
+        if ($this->session->userdata('Privileges') != 1)
+            redirect('cms');
         $this->load->model('alumni_model');
         $this->load->model('project_model');
         $data['teams'] = $this->alumni_model->get_teams();
@@ -152,7 +118,8 @@ class Cms extends CI_Controller {
     }
 
     function view_users() {
-        if ($this->session->userdata('Privileges')!=1) redirect ('cms');
+        if ($this->session->userdata('Privileges') != 1)
+            redirect('cms');
         $this->load->model('alumni_model');
         $data['alumni'] = $this->alumni_model->get_alumni();
         $data['cms_main_content'] = 'view_users';

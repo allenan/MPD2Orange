@@ -114,7 +114,7 @@ class Upload extends CI_Controller {
 
             $this->image_model->add_image($dataDB);
 
-            redirect('cms/tab' . $type);
+            redirect('cms/tn/' . $type . '/' . $position);
 
             //$this->load->view('upload_success', $data);
         }
@@ -142,7 +142,7 @@ class Upload extends CI_Controller {
             $this->image_model->delete_image($dup_info['id']);
         }
 
-        redirect('cms/tab' . $type);
+        redirect('cms/tab' . $tab);
     }
 
 }

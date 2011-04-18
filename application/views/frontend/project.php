@@ -25,7 +25,7 @@
 								<ul>
 									<p><?php if(isset($proj_img_summary)) : foreach ($proj_img_summary as $an_img) : ?>
 										<li><a href="#" rel="nofollow">
-										<img src="<?php echo "$an_img->imageURL"; ?>" alt="Summary Thumbnail" /></a></li>
+										<img src="<?php echo base_url(); echo "uploads/tn/$an_img->imageURL"; ?>" alt="Summary Thumbnail" /></a></li>
 									<?php endforeach; ?></p>
 									<?php endif; ?>
 								</ul>
@@ -34,7 +34,7 @@
 						<div class="sliderkit-panels">
 							<p><?php if(isset($proj_img_summary)) : foreach ($proj_img_summary as $an_img) : ?>
 							<div class="sliderkit-panel">
-								<img src="<?php echo "$an_img->imageURL"; ?>" alt="Summary Image" height = 335px width = 500px  style="margin-left: 150px;"  />
+								<img src="<?php echo base_url(); echo "uploads/$an_img->imageURL"; ?>" alt="Summary Image" height = 335px width = 500px  style="margin-left: 150px;"  />
 								<div class="sliderkit-panel-textbox">
 									<div class="sliderkit-panel-text">
 										<p><?php echo "$an_img->description"; ?></p>
@@ -61,7 +61,7 @@
 								<ul>
 									<p><?php if(isset($proj_img_opp)) : foreach ($proj_img_opp as $an_img) : ?>
 										<li><a href="#" rel="nofollow">
-										<img src="<?php echo "$an_img->imageURL"; ?>" alt="Opportunity Thumbnail" /></a></li>
+										<img src="<?php echo base_url(); echo "uploads/tn/$an_img->imageURL"; ?>" alt="Opportunity Thumbnail" /></a></li>
 									<?php endforeach; ?></p>
 									<?php endif; ?>
 								</ul>
@@ -70,7 +70,7 @@
 						<div class="sliderkit-panels">
 							<p><?php if(isset($proj_img_opp)) : foreach ($proj_img_opp as $an_img) : ?>
 							<div class="sliderkit-panel">
-								<img src="<?php echo "$an_img->imageURL"; ?>" alt="Opportunity Image" height = 335px width = 500px  style="margin-left: 150px;" />
+								<img src="<?php echo base_url(); echo "uploads/$an_img->imageURL"; ?>" alt="Opportunity Image" height = 335px width = 500px  style="margin-left: 150px;" />
 								<div class="sliderkit-panel-textbox">
 									<div class="sliderkit-panel-text">
 										<p><?php echo "$an_img->description"; ?></p>
@@ -96,7 +96,7 @@
 								<ul>
 									<p><?php if(isset($proj_img_idea)) : foreach ($proj_img_idea as $an_img) : ?>
 										<li><a href="#" rel="nofollow">
-										<img src="<?php echo "$an_img->imageURL"; ?>" alt="Ideation Thumbnail" /></a></li>
+										<img src="<?php echo base_url(); echo "uploads/tn/$an_img->imageURL"; ?>" alt="Ideation Thumbnail" /></a></li>
 									<?php endforeach; ?></p>
 									<?php endif; ?>
 								</ul>
@@ -105,7 +105,7 @@
 						<div class="sliderkit-panels">
 							<p><?php if(isset($proj_img_idea)) : foreach ($proj_img_idea as $an_img) : ?>
 							<div class="sliderkit-panel">
-								<img src="<?php echo "$an_img->imageURL"; ?>" alt="Ideation Image" height = 335px width = 500px  style="margin-left: 150px;"  />
+								<img src="<?php echo base_url(); echo "uploads/$an_img->imageURL"; ?>" alt="Ideation Image" height = 335px width = 500px  style="margin-left: 150px;"  />
 								<div class="sliderkit-panel-textbox">
 									<div class="sliderkit-panel-text">
 										<p><?php echo "$an_img->description"; ?></p>
@@ -131,7 +131,7 @@
 								<ul>
 									<p><?php if(isset($proj_img_finalprod)) : foreach ($proj_img_finalprod as $an_img) : ?>
 										<li><a href="#" rel="nofollow">
-										<img src="<?php echo "$an_img->imageURL"; ?>" alt="Final Product Thumbnail" /></a></li>
+										<img src="<?php echo base_url(); echo "uploads/tn/$an_img->imageURL"; ?>" alt="Final Product Thumbnail" /></a></li>
 									<?php endforeach; ?></p>
 									<?php endif; ?>
 								</ul>
@@ -140,7 +140,7 @@
 						<div class="sliderkit-panels">
 							<p><?php if(isset($proj_img_finalprod)) : foreach ($proj_img_finalprod as $an_img) : ?>
 							<div class="sliderkit-panel">
-								<img src="<?php echo "$an_img->imageURL"; ?>" alt="Final Product Image" height = 335px width = 500px  style="margin-left: 150px;"  />
+								<img src="<?php echo base_url(); echo "uploads/$an_img->imageURL"; ?>" alt="Final Product Image" height = 335px width = 500px  style="margin-left: 150px;"  />
 								<div class="sliderkit-panel-textbox">
 									<div class="sliderkit-panel-text">
 										<p><?php echo "$an_img->description"; ?></p>
@@ -190,7 +190,7 @@
 								<ul>
 									<p><?php if(isset($all_alum_data)) : foreach ($all_alum_data as $team_member) : ?>	
 										<li><a href="#" rel="nofollow">
-										<img src="<?php echo "$team_member->ImageURL"; ?>" alt="<?php echo "$team_member->FirstName $team_member->LastName" ?>" /></a></li>
+										<img src="<?php echo base_url(); echo "uploads/tn/$team_member->ImageURL"; ?>" alt="<?php echo "$team_member->FirstName $team_member->LastName" ?>" /></a></li>
 									<?php endforeach; ?></p>
 									<?php endif; ?>
 								</ul>

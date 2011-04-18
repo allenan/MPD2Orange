@@ -41,7 +41,7 @@ class Alumni_model extends CI_Model {
     function bio_info_team($team_id) {
         $this->db->where('alumni.teamid', $team_id);
         $this->db->from('alumni');
-        $this->db->join('images', 'images.alumniID = alumni.alumniID');
+        $this->db->join('images', 'images.alumniID = alumni.alumniID and images.imgtype = 4');
         $this->db->order_by("images.alumniID", "asc");
 
         $query = $this->db->get();

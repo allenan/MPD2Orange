@@ -33,7 +33,8 @@ class Project_model extends CI_Model {
         $sql = "select projectName from project
             where projID = (select projID from alumni where userID =
             (select userID from users where Login = ?))";
-        $q = $this->db->query($sql, $Login);
+        $q = $this->db->query($sql,$Login);
+		$retVal = null;
         foreach ($q->result() as $row) {
             $retVal = $row->projectName;
         }
@@ -44,7 +45,9 @@ class Project_model extends CI_Model {
         $sql = "select summary from project
             where projID = (select projID from alumni where userID =
             (select userID from users where Login = ?))";
-        $q = $this->db->query($sql, $Login);
+        $q = $this->db->query($sql,$Login);
+		$retVal = null;
+
         foreach ($q->result() as $row) {
             $retVal = $row->summary;
         }
@@ -66,7 +69,7 @@ class Project_model extends CI_Model {
     }
 
     function get_projects_with_image() {
-        $query = $this->db->query('select * from images right outer join project on images.projID = project.projID where imgtype = 1');
+        $query = $this->db->query('select * from images right outer join project on images.projID = project.projID where imgtype = 0');
         return $query->result();
     }
 

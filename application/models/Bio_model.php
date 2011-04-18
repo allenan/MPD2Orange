@@ -7,7 +7,7 @@ class Bio_model extends CI_Model {
         $sql = "SELECT Industry, CurrentEmployer, info, facebook, twitter, linkedin FROM alumni WHERE UserID =
                     (select UserID from users where Login = ?)";
         $q = $this->db->query($sql, $Login);
-
+		$ret = null;
         foreach ($q->result() as $row) {
             $ret[0] = $row->Industry;
             $ret[1] = $row->CurrentEmployer;
