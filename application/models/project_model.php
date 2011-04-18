@@ -35,6 +35,7 @@ class Project_model extends CI_Model {
             where projID = (select projID from alumni where userID =
             (select userID from users where Login = ?))";
         $q = $this->db->query($sql,$Login);
+		$retVal = null;
         foreach ($q->result() as $row) {
             $retVal = $row->projectName;
         }
@@ -46,6 +47,7 @@ class Project_model extends CI_Model {
             where projID = (select projID from alumni where userID =
             (select userID from users where Login = ?))";
         $q = $this->db->query($sql,$Login);
+		$retVal = null;
         foreach ($q->result() as $row) {
             $retVal = $row->summary;
         }
