@@ -72,6 +72,13 @@ class Alumni_model extends CI_Model {
         
         $q = $this->db->query($sql,$data); //$data: Login, Password
     }
+	
+	function add_admin($data) {
+        $sql = "INSERT INTO `mpd2`.`users` (`UserID` ,`Login` ,`Password` ,`Privileges`)
+            VALUES (NULL , ?, ?, '1')";
+        
+        $q = $this->db->query($sql,$data); //$data: Login, Password
+    }
 
     function add_alumni($data)
     {
@@ -96,7 +103,7 @@ class Alumni_model extends CI_Model {
 
     function get_teams()
     {
-        $sql = "SELECT * FROM alumni GROUP BY TeamID;";
+        $sql = "SELECT * FROM alumni order BY TeamID;";
         $q = $this->db->query($sql);
         return $q->result();
     }

@@ -105,6 +105,13 @@ class Cms extends CI_Controller {
         $data['cms_main_content'] = 'new_user';
         $this->load->view('cms/cms_template', $data);
     }
+	
+	function new_admin() {
+		if($this->session->userdata('Privileges') != 1)
+			redirect('cms');
+		$data['cms_main_content'] = 'new_admin';
+        $this->load->view('cms/cms_template', $data);	
+	}
 
     function edit($UserID) {
         if ($this->session->userdata('Privileges') != 1)
@@ -212,6 +219,17 @@ class Cms extends CI_Controller {
 
         redirect('cms/new_user');
     }
+	
+	function do_add_admin(){
+		$this->load->model('alumni_model');
+        //Add user entry
+        $login = $this->input->post('login');
+        $data[0] = $login;
+        $data[1] = md5($this->input->post('password'));
+        $this->alumni_model->add_admin($data);
+		
+		redirect('cms/new_admin');
+	}
 
     function do_edit_user() {
         $this->load->model('alumni_model');
