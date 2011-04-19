@@ -74,11 +74,11 @@ class Alumni_model extends CI_Model {
     }
 	
 	function add_admin($data) {
-        $sql = "INSERT INTO `mpd2`.`users` (`UserID` ,`Login` ,`Password` ,`Privileges`)
+	        $sql = "INSERT INTO `mpd2`.`users` (`UserID` ,`Login` ,`Password` ,`Privileges`)
             VALUES (NULL , ?, ?, '1')";
         
         $q = $this->db->query($sql,$data); //$data: Login, Password
-    }
+    }	
 
     function add_alumni($data)
     {

@@ -16,13 +16,13 @@
                     </tr>
                 </thead>
                 <tbody>
-					<?php $team_id = -1; ?>
+				<?php $team_id = -1; ?>
                     <?php foreach ($teams as $row): ?>
                         <tr>
-							<?php if($team_id != $row->TeamID) : 
-								$team_id = $row->TeamID?>
+							<?php if ($team_id != $row->TeamID) :
+								$team_id = $row->TeamID ?>
                             <td><input type="radio" name="team_group[]" value="<?php echo $row->TeamID; ?>"></td>
-							<?php else : echo "<td></td>"; endif; ?> 
+							<?php else : echo "<td></td>"; endif; ?>
                             <td><?php echo $row->FirstName; ?></td>
                             <td><?php echo $row->LastName; ?></td>
                             <td><?php echo $row->GraduationYear; ?></td>

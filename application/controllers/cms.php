@@ -230,7 +230,7 @@ class Cms extends CI_Controller {
 		
 		redirect('cms/new_admin');
 	}
-
+	
     function do_edit_user() {
         $this->load->model('alumni_model');
         $UserID = $this->input->post('UserID');
