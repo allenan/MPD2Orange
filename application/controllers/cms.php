@@ -18,9 +18,15 @@ class Cms extends CI_Controller {
         if ($this->session->userdata('Privileges') != 0)
             redirect('cms');
         $this->load->model('bio_model');
+		$this->load->model('alumni_model');
+		$this->load->model('project_model');
+		$this->load->model('image_model');
         $Login = $this->session->userdata('Login');
+		$proj_id = $this->project_model->get_projects_login($Login)->ProjID;
+        $data['current_info'] = $this->image_model->get_proj_images_typed($proj_id, 4);
         $data['cms_main_content'] = 'bio';
         $data['bio_content'] = $this->bio_model->get_bio($Login);
+		$data['position'] = $this->alumni_model->get_team_position_login($Login);
         $this->load->view('cms/cms_template', $data);
     }
 
@@ -39,15 +45,37 @@ class Cms extends CI_Controller {
         if ($this->session->userdata('Privileges') != 0)
             redirect('cms');
         
-        if (($index < 0) || ($index > 4))
+        if (($index < 0) || ($index > 3))
             redirect('cms');
         
         $this->load->model('project_model');
         $this->load->model('image_model');
         $Login = $this->session->userdata('Login');
-
-        $data['cms_main_content'] = 'tab';
-        $data['tab_index'] = $index;
+		
+		switch($index){
+		case 0:
+			$data['edit'] = 'Edit Summary Content';
+			$data['text'] = 'Summary Text';
+			$data['image'] = 'Summary Image ';
+			break;
+		case 1:
+			$data['edit'] = 'Edit Product Opportunity Content';
+			$data['text'] = 'Product Opportunity Text';
+			$data['image'] = 'Product Opportunity Image ';
+			break;
+		case 2:
+			$data['edit'] = 'Edit Ideation Content';
+			$data['text'] = 'Ideation Text';
+			$data['image'] = 'Ideation Image ';
+			break;
+		case 3:
+			$data['edit'] = 'Edit Final Product Content';
+			$data['text'] = 'Final Product Text';
+			$data['image'] = 'Final Product Image ';
+			break;
+		}
+		$data['cms_main_content'] = 'tab';
+		$data['tab_index'] = $index;
         $proj_id = $this->project_model->get_projects_login($Login)->ProjID;
         $data['current_info'] = $this->image_model->get_proj_images_typed($proj_id, $index);
         $this->load->view('cms/cms_template', $data);
@@ -232,11 +260,14 @@ class Cms extends CI_Controller {
 
     function do_make_team() {
         $this->load->model('alumni_model');
+        $this->load->model('image_model');
         $team_group = $this->input->post('team_group');
         $next_teamID = $this->alumni_model->get_next_teamID();
-
+		$position = 0;
         foreach ($team_group as $member) {
             $this->alumni_model->update_teamID($member, $next_teamID);
+			$this->image_model->update_teamID_image($member, $next_teamID, $position);
+			$position++;
         }
 
         redirect('cms/teams');
@@ -244,11 +275,12 @@ class Cms extends CI_Controller {
 
     function do_assign_project() {
         $this->load->model('alumni_model');
+        $this->load->model('image_model');
         $team_group = $this->input->post('team_group');
         $project_group = $this->input->post('project_group');
 
         $this->alumni_model->update_projID($project_group[0], $team_group[0]);
-
+		$this->image_model->update_projID_image($project_group[0], $team_group[0]);
         redirect('cms/projects');
     }
 

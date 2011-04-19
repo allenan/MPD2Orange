@@ -6,13 +6,19 @@
 
 		</div>
 		<div class="grid_8">
-			<?php if(isset($alum_data)) : ?>
+			<?php if($alum_data->ImageURL != '') : ?>
 			<img src="<?php echo base_url()."uploads/$alum_data->ImageURL";?>" alt="<?php echo "$alum_data->FirstName $alum_data->LastName" ?>" />
 			<?php else : echo "<h2>Image not found!</h2>";?>
 			<?php endif; ?>
+			<?php if($alum_data->twitter != '') : ?>
 			<a href="<?php echo "$alum_data->twitter"; ?>"><img src="<?php echo base_url()."images/twitter_logo.jpg"; ?>" alt="Twitter"/></a>
+			<?php endif;
+			if($alum_data->linkedin!= '') : ?>
 			<a href="<?php echo "$alum_data->linkedin"; ?>"><img src="<?php echo base_url()."images/linkedIn_logo.gif"; ?>" alt="LinkedIn"/></a>
-			<a href="<?php echo "$alum_data->facebook"; ?>"><img src="<?php echo base_url()."images/facebooklogo.png"; ?>"= alt="Facebook"/></a>
+			<?php endif;
+			if($alum_data->facebook != '') : ?>
+			<a href="<?php echo "$alum_data->facebook"; ?>"><img src="<?php echo base_url()."images/facebooklogo.png"; ?>" alt="Facebook"/></a>
+			<?php endif;?>
 		</div>
 		
 		<div class = "grid_4 push_2">

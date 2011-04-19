@@ -5,5 +5,4 @@
             <li class="icn_edit_article"><a href="<?php echo base_url(); echo index_page(); echo "/";?>cms/tab/1">Product Opportunity</a></li>
             <li class="icn_categories"><a href="<?php echo base_url(); echo index_page(); echo "/";?>cms/tab/2">Ideation</a></li>
             <li class="icn_tags"><a href="<?php echo base_url(); echo index_page(); echo "/";?>cms/tab/3">Final Product</a></li>
-            <li class="icn_tags"><a href="<?php echo base_url(); echo index_page(); echo "/";?>cms/tab/4">Team</a></li>
 </ul>

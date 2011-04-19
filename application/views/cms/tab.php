@@ -2,11 +2,11 @@
 
 <?php for ($i = 0; $i <= 3; $i++) : ?>
 <article class="module width_full">
-    <header><h3>Edit Summary Content</h3></header>
+    <header><h3><?php echo $edit;?></h3></header>
     <div class="module_content">
         <?php echo form_open_multipart('upload/do_upload'); ?>
         <fieldset>
-            <label>Image <?php echo $i+1;?></label>
+            <label><?php echo $image; echo $i+1;?></label>
 			<?php if(isset($current_info[$i])): echo "Current Image: ".$current_info[$i]->imageURL;
 			else : echo "No Image set.";
 			endif; ?>
@@ -14,7 +14,7 @@
         </fieldset>
 
         <fieldset>
-            <label>Summary Text</label>
+            <label><?php echo $text;?></label>
             <?php
             $summaryFormData = array(
                 'name' => 'description',

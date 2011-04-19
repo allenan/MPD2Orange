@@ -69,13 +69,13 @@ class Project_model extends CI_Model {
     }
 
     function get_projects_with_image() {
-        $query = $this->db->query('select * from images right outer join project on images.projID = project.projID where imgtype = 0');
+        $query = $this->db->query('select images.ImageURL, project.ProjectName, project.Summary, project.ProjID, project.Year from 
+images right outer join project on images.projID = project.projID where imgtype = 0 and position = 0');
         return $query->result();
     }
 
     function get_project_years() {
-        $this->db->select('year');
-        $query = $this->db->get('project');
+        $query = $this->db->query('select distinct year from project join images on project.projID = images.projID where imgType = 0 order by year desc');
         return $query->result();
     }
 

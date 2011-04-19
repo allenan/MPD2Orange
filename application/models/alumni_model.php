@@ -37,8 +37,25 @@ class Alumni_model extends CI_Model {
 
         return $query->num_rows();
     }
+	
+	function get_alumID_login($login) {
+		$query = $this->db->query("select alumniID from alumni where userID = (select userid from users where login = ?)", $login);
+		return $query->first_row()->alumniID;
+	}
+	
+	function get_teamID_login($login) {
+		$query = $this->db->query("select teamID from alumni where userID = (select userid from users where login = ?)", $login);
+		return $query->first_row()->teamID;
+	}
 
-    function bio_info_team($team_id) {
+	function get_team_position_login($login) {
+        $query = $this->db->query("select alumniID from alumni where teamID = ? and alumniid < ? order by alumniID asc",
+			array($this->get_alumID_login($login),$this->get_teamID_login($login)));
+
+        return $query->num_rows();
+    } 
+
+	function bio_info_team($team_id) {
         $this->db->where('alumni.teamid', $team_id);
         $this->db->from('alumni');
         $this->db->join('images', 'images.alumniID = alumni.alumniID and images.imgtype = 4');
@@ -98,7 +115,7 @@ class Alumni_model extends CI_Model {
 
     function update_teamID($AlumniID, $TeamID)
     {
-        $sql = "UPDATE `mpd2`.`alumni` SET `TeamID` = ? WHERE `alumni`.`AlumniID` =?;";
+        $sql = "UPDATE `mpd2`.`alumni` SET `TeamID` = ? , `ProjID` = NULL WHERE `alumni`.`AlumniID` =?;";
         $q = $this->db->query($sql,array($TeamID,$AlumniID));
         return $q;
     }
