@@ -16,7 +16,7 @@ class Project_model extends CI_Model {
     function update_project($data) {
         //$this->db->where('projid', $proj_id);
         //$this->db->update('project', $data);
-        $sql = "UPDATE `mpd2`.`project`
+        $sql = "UPDATE project
             SET `ProjectName` = ?,
             `Summary` = ?
             WHERE `project`.`ProjID` =(select projID from alumni where userID =

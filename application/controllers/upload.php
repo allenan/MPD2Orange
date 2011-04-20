@@ -14,6 +14,8 @@ class Upload extends CI_Controller {
     function make_tn() {
         $this->load->library('image_lib');
 
+        //TODO: Check to make sure a tn doesn't already exist
+
         //CROP
         $config['image_library'] = 'gd2';
         $config['source_image'] = './uploads/' . $this->input->post('url');

@@ -22,7 +22,7 @@ class Bio_model extends CI_Model {
 
     function update_bio($data) {
         // Results
-        $sql = "UPDATE `mpd2`.`alumni`
+        $sql = "UPDATE alumni
                 SET Industry = ?,
                 CurrentEmployer = ?,
                 info = ?,

@@ -89,14 +89,14 @@ class Image_model extends CI_Model {
 	
 	function update_teamID_image($AlumniID, $TeamID, $pos)
     {
-        $sql = "UPDATE `mpd2`.`images` SET `TeamID` = ? , `ProjID` = NULL, position = ? WHERE `images`.`AlumniID` = ? and imgType = 4;";
+        $sql = "UPDATE images SET `TeamID` = ? , `ProjID` = NULL, position = ? WHERE `images`.`AlumniID` = ? and imgType = 4;";
         $q = $this->db->query($sql,array($TeamID,$pos,$AlumniID));
         return $q;
     }
 	
 	function update_projID_image($ProjID, $TeamID)
     {
-        $sql = "UPDATE `mpd2`.`images` SET `ProjID` = ? WHERE `images`.`TeamID` =?;";
+        $sql = "UPDATE images SET `ProjID` = ? WHERE `images`.`TeamID` =?;";
         $q = $this->db->query($sql,array($ProjID,$TeamID));
         return $q;
     }
