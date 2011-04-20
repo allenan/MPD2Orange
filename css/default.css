@@ -1,101 +1,147 @@
-#header h1
+#logo
 {
-	text-align:center;
+    background-color: black;
+    -moz-border-radius-bottomright: 20px;
+    border-bottom-right-radius: 20px;
+    height: 120px;
+    overflow: hidden;
+}
+
+#logo img
+{
+    margin-top: 50px;
 }
 
 #site_nav
 {
-	margin-bottom:10px;
+    margin-bottom:10px;
+    background-color: #000;
+    -moz-border-radius-bottomleft: 20px;
+    border-bottom-left-radius: 20px;
+    
+}
+
+#site_nav ul
+{
+    padding-top:55px;
 }
 
 #site_nav ul li
 {
-	margin: 0px 30px 0px 30px;
+    font-size: 30px;
+    font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    margin: 0px 5px 0px 20px;
 }
 
- ul { 
-        margin: 0; 
-        padding: 5px; 
-        list-style-type: none; 
-        text-align: center; 
-        background-color: #000; 
-        } 
- 
+#site_nav li:last-child
+{
+    margin-left: 360px;
+}
+
+#site_nav .search-box
+{
+    background-color: #aaa;
+    border-radius: 10px;
+    border: none;
+    padding: 3px 3px 3px 6px;
+    color: #fff;
+    height: 28px;
+    
+}
+
+ul { 
+    margin: 0;
+    padding: 5px 5px 20px 5px;
+    list-style-type: none;
+} 
+
 ul li {  
-        display: inline; 
-        } 
- 
-ul li a { 
-        text-decoration: none; 
-        padding: .2em 1em; 
-        color: #fff; 
-        background-color: #000; 
-        } 
- 
-ul li a:hover { 
-        color: #000; 
-        background-color: #fff; 
-        }
+    display: inline;
+} 
+
+#site_nav ul li a {
+    text-decoration: none;
+    padding: 0;
+    color: #fff;
+    background-color: #000;
+    color: #aaa;
+} 
+
+#site_nav ul li a:hover {
+    color: #000;
+    background-color: #fff;
+}
+
+#year_nav ul li a{
+    text-decoration: none;
+    color: #aaa;
+    font-size: 24px;
+}
+
+#year_nav ul li:first-child{
+    margin-left: 5px;
+}
 
 
 #content
 {
-	width:960px;
-	margin:0px auto;
+    background-color: #ddd;
+    border-top-left-radius: 20px;
 }
 div.img
-  {
-  /*margin:2px;*/
-	margin-left:5px;
-	margin-right:5px;
-	margin-top:20px;
-  border:1px solid #000;
-  height:auto;
-  width:auto;
-  float:left;
-  text-align:center;
-  padding:10px;
-  }
+{
+    /*margin:2px;*/
+    margin-left:5px;
+    margin-right:5px;
+    margin-top:20px;
+    border:1px solid #000;
+    height:auto;
+    width:auto;
+    float:left;
+    text-align:center;
+    padding:10px;
+}
 div.img img
-  {
-  display:inline;
-  margin:3px;
-  border:1px solid #ffffff;
-  }
+{
+    display:inline;
+    margin:3px;
+    border:1px solid #ffffff;
+}
 div.img a:hover img
-  {
-  border:1px solid #0000ff;
-  }
+{
+    border:1px solid #0000ff;
+}
 div.desc
-  {
-  text-align:center;
-  font-weight:normal;
-  width:240px;
-  margin:2px;
-  }
+{
+    text-align:center;
+    font-weight:normal;
+    width:240px;
+    margin:2px;
+}
 
 #alumni_list
 {
-	margin-top: 20px;
+    margin-top: 20px;
 }
 
 #bio_title
 {
-	text-align:center;
-	margin-top:20px;
+    text-align:center;
+    margin-top:20px;
 }
 
 #project_title
 {
-	text-align:center;
-	margin-top:20px;
+    text-align:center;
+    margin-top:20px;
 }
 
 .year p
 {
-	writing-mode: tb-rl;
-	-webkit-transform: rotate(270deg); 
-	-moz-transform: rotate(270deg);
-	margin-top:130px;
-	font-size: 20px;
+    writing-mode: tb-rl;
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    margin-top:130px;
+    font-size: 20px;
 }

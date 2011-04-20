@@ -1,17 +1,19 @@
 	
 <body>
 	<div id="page_container" class="container_12">
-		<div id="header" class="grid_8 push_2">
-			<h1>MPD2 Program</h1>
-		</div>
-		<div id="login" class="grid_2 push_2">
-		<a href="<?php echo base_url(); echo index_page(); echo '/';?>login">User Login</a>
+		<div id="logo" class="grid_2">
+                    <a href="<?php echo base_url();?>"><img src="<?php echo base_url();?>images/mpdlogo.jpg" alt="MPD2"/></a>
 		</div>
 		
-		<div id="site_nav" class ="grid_6 push_3">
+		
+		<div id="site_nav" class ="grid_10">
 			<ul>
-				<li><a href="<?php echo base_url(); echo index_page(); echo'/';?>site/gallery">Projects</a></li>
-				<li><a href="<?php echo base_url(); echo index_page(); echo'/';?>site/alumni">Alumni</a></li>
+                            <?php echo form_open('site/serach');?>
+                            <li><a href="<?php echo base_url(); echo index_page(); echo'/';?>site/gallery">projects</a></li>
+                            <li><a href="<?php echo base_url(); echo index_page(); echo'/';?>site/alumni">alumni</a></li>
+                            <li><?php echo form_input("search", "search", 'class="search-box" onFocus=this.value=""');?></li>
+                            <?php echo form_close();?>
 			</ul>
+                    
 		</div>
 		
