@@ -63,6 +63,11 @@ class Image_model extends CI_Model {
         $this->db->delete('images');
     }
 
+    function delete_image_by_project($ProjID) {
+        $this->db->where('ProjID', $ProjID);
+        $this->db->delete('images');
+    }
+
     function get_team_pictures($team_id) {
         $query = $this->db->query("select imageURL, alumniID from images where teamid = ?", array($team_id));
         return $query->result();

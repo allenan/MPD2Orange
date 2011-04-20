@@ -5,5 +5,6 @@
     <li class="icn_add_user"><a href="<?php echo base_url(); echo index_page(); echo "/";?>cms/new_project">Add New Project</a></li>
 	<li class="icn_view_users"><a href="<?php echo base_url(); echo index_page(); echo "/";?>cms/teams">Assign Teams</a></li>
     <li class="icn_view_users"><a href="<?php echo base_url(); echo index_page(); echo "/";?>cms/projects">Assign Projects</a></li>
+    <li class="icn_view_users"><a href="<?php echo base_url(); echo index_page(); echo "/";?>cms/view_projects">View Projects</a></li>
     <li class="icn_view_users"><a href="<?php echo base_url(); echo index_page(); echo "/";?>cms/view_users">View Users</a></li>
 </ul>
