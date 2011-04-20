@@ -67,14 +67,14 @@ class Alumni_model extends CI_Model {
     }
 
     function add_user($data) {
-        $sql = "INSERT INTO `mpd2`.`users` (`UserID` ,`Login` ,`Password` ,`Privileges`)
+        $sql = "INSERT INTO users (`UserID` ,`Login` ,`Password` ,`Privileges`)
             VALUES (NULL , ?, ?, '0')";
         
         $q = $this->db->query($sql,$data); //$data: Login, Password
     }
 	
 	function add_admin($data) {
-	        $sql = "INSERT INTO `mpd2`.`users` (`UserID` ,`Login` ,`Password` ,`Privileges`)
+	        $sql = "INSERT INTO users (`UserID` ,`Login` ,`Password` ,`Privileges`)
             VALUES (NULL , ?, ?, '1')";
         
         $q = $this->db->query($sql,$data); //$data: Login, Password
@@ -82,7 +82,7 @@ class Alumni_model extends CI_Model {
 
     function add_alumni($data)
     {
-        $sql = "INSERT INTO `mpd2`.`alumni` (`UserID`, `CurrentEmployer`, `GraduationYear`, `Industry`, `FirstName`, `LastName`, `ProjID`, `AlumniID`, `TeamID`, `info`, `facebook`, `twitter`, `linkedin`)
+        $sql = "INSERT INTO alumni (`UserID`, `CurrentEmployer`, `GraduationYear`, `Industry`, `FirstName`, `LastName`, `ProjID`, `AlumniID`, `TeamID`, `info`, `facebook`, `twitter`, `linkedin`)
             VALUES (?, NULL, ?, NULL, ?, ?, NULL, NULL, NULL, NULL, NULL, NULL, NULL);";
         $q = $this->db->query($sql,$data);//$data: UserID, GraduationYear, FirstName, LastName
     }
@@ -122,14 +122,14 @@ class Alumni_model extends CI_Model {
 
     function update_teamID($AlumniID, $TeamID)
     {
-        $sql = "UPDATE `mpd2`.`alumni` SET `TeamID` = ? , `ProjID` = NULL WHERE `alumni`.`AlumniID` =?;";
+        $sql = "UPDATE alumni SET `TeamID` = ? , `ProjID` = NULL WHERE `alumni`.`AlumniID` =?;";
         $q = $this->db->query($sql,array($TeamID,$AlumniID));
         return $q;
     }
 
     function update_projID($ProjID, $TeamID)
     {
-        $sql = "UPDATE `mpd2`.`alumni` SET `ProjID` = ? WHERE `alumni`.`TeamID` =?;";
+        $sql = "UPDATE alumni SET `ProjID` = ? WHERE `alumni`.`TeamID` =?;";
         $q = $this->db->query($sql,array($ProjID,$TeamID));
         return $q;
     }
@@ -149,10 +149,10 @@ class Alumni_model extends CI_Model {
 
     function delete_user($UserID)
     {
-        $sql = "DELETE FROM `mpd2`.`alumni` WHERE `alumni`.`UserID` = ?;";
+        $sql = "DELETE FROM alumni WHERE `alumni`.`UserID` = ?;";
         $q = $this->db->query($sql,$UserID);
 
-        $sql = "DELETE FROM `mpd2`.`users` WHERE `users`.`UserID` = ?;";
+        $sql = "DELETE FROM users WHERE `users`.`UserID` = ?;";
         $q = $this->db->query($sql,$UserID);
 
         return $q;

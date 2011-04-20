@@ -161,6 +161,26 @@ class Cms extends CI_Controller {
         $this->load->view('cms/cms_template', $data);
     }
 
+    function view_projects() {
+        if ($this->session->userdata('Privileges') != 1)
+            redirect('cms');
+        $this->load->model('project_model');
+        $data['projects'] = $this->project_model->get_all_projects();
+        $data['cms_main_content'] = 'view_projects';
+        $this->load->view('cms/cms_template', $data);
+    }
+
+    function edit_project($ProjID) {
+        if ($this->session->userdata('Privileges') != 1)
+            redirect('cms');
+
+        $this->load->model('project_model');
+        $data['project_info'] = $this->project_model->get_project_info($ProjID);
+        $data['cms_main_content'] = 'edit_project';
+        
+        $this->load->view('cms/cms_template', $data);
+    }
+
     //FUNCTIONS
 
     function is_logged_in() {
@@ -265,6 +285,16 @@ class Cms extends CI_Controller {
         redirect('cms/view_users');
     }
 
+    function delete_project($ProjID) {
+        $this->load->model('image_model');
+        $this->image_model->delete_image_by_project($ProjID);
+
+        $this->load->model('project_model');
+        $this->project_model->delete_project($ProjID);
+
+        redirect('cms/view_projects');
+    }
+
     function do_add_project() {
         $this->load->model('project_model');
 
@@ -274,6 +304,19 @@ class Cms extends CI_Controller {
         $this->project_model->add_project($data);
 
         redirect('cms/new_project');
+    }
+
+    function do_update_project() {
+        $this->load->model('project_model');
+
+        $ProjID = $this->input->post('ProjID');
+
+        $data['ProjectName'] = $this->input->post('project_name');
+        $data['Year'] = $this->input->post('project_year');
+
+        $this->project_model->update_project_all($ProjID, $data);
+
+        redirect('cms/view_projects');
     }
 
     function do_make_team() {
