@@ -62,6 +62,23 @@ class Image_model extends CI_Model {
         $this->db->where('imageID', $img_id);
         $this->db->delete('images');
     }
+	
+	function update_proj_images_position($proj_id, $img_type){
+		$sql = "select current.ImageID, current.Position from images current left join images previous on
+		current.position = previous.position + 1 and current.projID = previous.projID and
+		current.imgType = previous.imgType where current.position <> 0 and previous.position is null and projID = ? and imgType = ?";
+		$unordered_images = $this->db->query($sql, array($proj_id, $img_type));
+		
+		while($unordered_images->num_rows()){
+			foreach ($unordered_images->result() as $one_image){
+				$this->db->where('imageID', $one_image->ImageID);
+				$this->db->update('images', array('position'=> ($position - 1));
+			}			
+		
+			$unordered_images = $this->db->query($sql, array($proj_id, $img_type));
+		}
+	
+	}
 
     function get_team_pictures($team_id) {
         $query = $this->db->query("select imageURL, alumniID from images where teamid = ?", array($team_id));

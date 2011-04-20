@@ -69,7 +69,7 @@ class Upload extends CI_Controller {
                 $imgid = $this->image_model->get_imgid($ProjID, $ImgType, $position);
                 $this->image_model->update_image($data, $imgid);
 
-                redirect('cms/tab' . $ImgType);
+                redirect('cms/tab/' . $ImgType);
             }
             $error = array('error' => $this->upload->display_errors());
             echo $error['error'];
@@ -142,7 +142,7 @@ class Upload extends CI_Controller {
             $this->image_model->delete_image($dup_info['id']);
         }
 
-        redirect('cms/tab' . $tab);
+        redirect('cms/tab/' . $tab);
     }
 
 }
