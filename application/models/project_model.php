@@ -26,7 +26,13 @@ class Project_model extends CI_Model {
 
     function delete_project($proj_id) {
         $this->db->where('projid', $proj_id);
+		$whattoupdate = array( 'projID' => NULL);
+        $this->db->update('alumni', $whattoupdate);
+		$this->db->where('projid', $proj_id);
         $this->db->delete('project');
+		$this->db->where('projid', $proj_id);
+        $this->db->delete('images');
+
     }
 
     function get_projectName($Login) {

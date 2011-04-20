@@ -76,7 +76,8 @@ class Upload extends CI_Controller {
             $error = array('error' => $this->upload->display_errors());
             echo $error['error'];
             //$this->load->view('upload_form', $error);
-        } else {
+        }
+		else {
 
             //Set up variables for db
             $this->load->model('utilities_model');
@@ -109,12 +110,17 @@ class Upload extends CI_Controller {
                 }
                 //die($dup_info['url']);
                 //delete entry in images table
-                $this->image_model->delete_image($dup_info['id']);
+                $this->image_model->delete_image($dup_info['id'], $projID, $type);
             }
 
             $data = array('upload_data' => $this->upload->data());
 
-            $this->image_model->add_image($dataDB);
+            
+			
+			$position = $this->image_model->add_image($dataDB, $projID, $type, $position);
+			
+			
+			
 
             redirect('cms/tn/' . $type . '/' . $position);
 
@@ -141,7 +147,7 @@ class Upload extends CI_Controller {
             }
             //die($dup_info['url']);
             //delete entry in images table
-            $this->image_model->delete_image($dup_info['id']);
+            $this->image_model->delete_image($dup_info['id'], $data['ProjID'], $data['imgType']);
         }
 
         redirect('cms/tab/' . $tab);

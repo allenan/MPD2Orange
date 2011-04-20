@@ -48,9 +48,13 @@ class Image_model extends CI_Model {
         return $q->first_row()->ImageID;
     }
 
-    function add_image($data) {
+    function add_image($data, $projid, $imgtype, $origPosition) {
         $this->db->insert('images', $data);
-        return;
+		$imageID = $this->get_imgid($projid, $imgtype, $origPosition); 
+		$this->update_proj_images_position($projid,$imgtype);
+		
+		$res = $this->db->query("select position from images where imageid = ?", $imageID);
+        return $res->first_row()->position;
     }
 
     function update_image($data, $img_id) {
@@ -58,21 +62,22 @@ class Image_model extends CI_Model {
         $this->db->update('images', $data);
     }
 
-    function delete_image($img_id) {
+    function delete_image($img_id, $projid, $imgtype) {
         $this->db->where('imageID', $img_id);
         $this->db->delete('images');
+		$this->update_proj_images_position($projid,$imgtype);
     }
 	
 	function update_proj_images_position($proj_id, $img_type){
 		$sql = "select current.ImageID, current.Position from images current left join images previous on
 		current.position = previous.position + 1 and current.projID = previous.projID and
-		current.imgType = previous.imgType where current.position <> 0 and previous.position is null and projID = ? and imgType = ?";
+		current.imgType = previous.imgType where current.position <> 0 and previous.position is null and current.projID = ? and current.imgType = ?";
 		$unordered_images = $this->db->query($sql, array($proj_id, $img_type));
 		
 		while($unordered_images->num_rows()){
 			foreach ($unordered_images->result() as $one_image){
 				$this->db->where('imageID', $one_image->ImageID);
-				$this->db->update('images', array('position'=> ($position - 1));
+				$this->db->update('images', array('position'=> ($one_image->Position - 1)));
 			}			
 		
 			$unordered_images = $this->db->query($sql, array($proj_id, $img_type));
