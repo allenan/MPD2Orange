@@ -14,7 +14,7 @@
 
 <div id="content" class="grid_12">
 	<div id="project_title" class="grid_12 alpha omega">
-		<h2>Project: <?php echo $proj_info->ProjectName; ?></h2>
+		<h2><?php echo $proj_info->ProjectName; ?></h2>
 	</div>
 	<div  class="grid_12">
 		<div class="customtabs tabs-imbricate">
@@ -48,7 +48,7 @@
 						<div class="sliderkit-panels">
 							<p><?php if(isset($proj_img_summary)) : foreach ($proj_img_summary as $an_img) : ?>
 							<div class="sliderkit-panel">
-								<img src="<?php echo base_url(); echo "uploads/$an_img->imageURL"; ?>" alt="Summary Image" height = 335px width = 500px  style="margin-left: 200px;"  />
+								<img src="<?php echo base_url(); echo "uploads/$an_img->imageURL"; ?>" alt="Summary Image" height = 450px width = 601px  style="margin-left: 200px;"  />
 								<div class="sliderkit-panel-textbox">
 									<div class="sliderkit-panel-text">
 										<p><?php echo "$an_img->description"; ?></p>

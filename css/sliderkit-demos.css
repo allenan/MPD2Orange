@@ -168,7 +168,7 @@
 /*---------------------------------
  *  Photos gallery > Vertical
  *---------------------------------*/
-.photosgallery-vertical{width:896px;height:335px; left:0px;}
+.photosgallery-vertical{width:896px;height:450px; left:0px;}
 
 /* Nav */
 .photosgallery-vertical .sliderkit-nav{top:0;right:0;width:95px;height:100%;background:#000;}
@@ -197,13 +197,13 @@
 .photosgallery-vertical .sliderkit-go-next{top:0;right:0;}
 
 /* Panel */
-.photosgallery-vertical .sliderkit-panel{top:0;left:0;width:800px;height:335px; background: #fff;}
+.photosgallery-vertical .sliderkit-panel{top:0;left:0;width:800px;height:450px; background: #eee;}
 
 /* Panel > Textbox */
-.photosgallery-vertical .sliderkit-panel .sliderkit-panel-textbox{bottom:0;left:0px;height:335px;width:200px;}
-.photosgallery-vertical .sliderkit-panel .sliderkit-panel-text{height:335px;width:200px;left:0;padding:0px 0px 0px 0px;font-size:1.1em;color:#fff;}
+.photosgallery-vertical .sliderkit-panel .sliderkit-panel-textbox{bottom:0;left:0px;height:450px;width:200px;}
+.photosgallery-vertical .sliderkit-panel .sliderkit-panel-text{height:440px;width:184px;left:0;padding:5px 8px;font-size:1.1em;color:#fff;}
 .photosgallery-vertical .sliderkit-panel .sliderkit-panel-text h4{height:auto;margin:0 0 7px;line-height:1.1em;font-size:1.1em;font-weight:bold;border:none;}
-.photosgallery-vertical .sliderkit-panel .sliderkit-panel-overlay{height:335px;width:200px;background:#000;}
+.photosgallery-vertical .sliderkit-panel .sliderkit-panel-overlay{border-top-left-radius: 20px;height:450px;width:200px;background:#000;}
 
 /*---------------------------------
  *  Photos gallery > Minimalistic
@@ -486,7 +486,7 @@
 .tabs-noheight .sliderkit-nav-clip li.sliderkit-selected a{color:#000;background-position:right -66px;}
 
 /* Panel */
-.tabs-noheight .sliderkit-panels{width:528px;padding:10px;border:1px solid #a3a3a3;background:#fff;}
+.tabs-noheight .sliderkit-panels{width:528px;padding:10px;border:1px solid #a3a3a3;background:#e;}
 .tabs-noheight .sliderkit-panel{position:relative;}
 
 /* News block */
@@ -499,23 +499,23 @@
 /*---------------------------------
  *	Tabs > Imbricate
  *---------------------------------*/	
-.tabs-imbricate{width:800px;height:600px;}
+.tabs-imbricate{width:960px;height:600px;}
 .tabs-imbricate img{border:none;}
 
 /* Nav */
-.tabs-imbricate .customtabs-nav{position:relative;width:800px;height:22px;text-align:left;}
+.tabs-imbricate .customtabs-nav{position:relative;width:960px;height:36px;text-align:left;}
 .tabs-imbricate .customtabs-nav-clip{margin:0;}
 .tabs-imbricate .customtabs-nav-clip ul{position:relative;left:0;top:0;list-style:none;margin:0;padding:0;}
-.tabs-imbricate .customtabs-nav-clip li{height:22px;padding:0 0 0 5px;margin:0 2px 0 0;}
+.tabs-imbricate .customtabs-nav-clip li{height:24px;padding:0 0 0 5px;margin:0 2px 0 0;}
 .tabs-imbricate .customtabs-nav-clip li,
-.tabs-imbricate .customtabs-nav-clip li a{float:left;background:transparent url("../images/tabs-menu.gif") no-repeat 0 0;}
-.tabs-imbricate .customtabs-nav-clip li a{display:block;overflow:hidden;height:18px;margin:0;padding:4px 10px 0;color:#fff;text-decoration:none;background-position:right -22px;}
-.tabs-imbricate .customtabs-nav-clip li.customtabs-selected{background-position:0 -44px;}
-.tabs-imbricate .customtabs-nav-clip li.customtabs-selected a{color:#000;background-position:right -66px;}
+.tabs-imbricate .customtabs-nav-clip li a{float:left; font: 24px 'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif;}
+.tabs-imbricate .customtabs-nav-clip li a{display:block;overflow:hidden;height:24px;margin:0;padding:4px 8px 0;color:#aaa;text-decoration:none;background-position:right -22px;}
+.tabs-imbricate .customtabs-nav-clip li a:hover { color:#666;  }
+.tabs-imbricate .customtabs-nav-clip li.customtabs-selected a{color:#7d74ad;background-position:right -66px;}
 
 /* Panel */
-.tabs-imbricate .customtabs-panels{width:896px;height:450px;padding:10px;border:1px solid #a3a3a3;}
-.tabs-imbricate .customtabs-panel{z-index:1;position:absolute;overflow:hidden;width:896px;height:578x;background:#fff;}
+.tabs-imbricate .customtabs-panels{border-top-left-radius: 20px;width:896px;height:450px;padding:10px;border:1px solid #a3a3a3;}
+.tabs-imbricate .customtabs-panel{z-index:1;position:absolute;overflow:hidden;width:896px;height:578x;background:#eee;}
 .tabs-imbricate .customtabs-panel-active{z-index:5;width:896px;height:450px;}
 .tabs-imbricate .customtabs-panel-old{z-index:0;}
 
