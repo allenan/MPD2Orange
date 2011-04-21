@@ -1,8 +1,22 @@
+<!--<div class="customtabs tabs-imbricate">
+<div  class="grid_10 push_2">
+    <div class="customtabs-nav-clip customtabs-nav">
+        <ul>
+            <li><a href="#" title="Summary">Summary</a></li>
+            <li><a href="#" title="Product Opportunity">Product Opportunity</a></li>
+            <li><a href="#" title="Ideation">Ideation</a></li>
+            <li><a href="#" title="Final Product">Final Product</a></li>
+            <li><a href="#" title="Product Details">Product Details</a></li>
+            <li><a href="#" title="Team">Team</a></li>
+        </ul>
+    </div>
+</div>-->
+
 <div id="content" class="grid_12">
-	<div id="project_title" class="grid_8 push_2">
+	<div id="project_title" class="grid_12 alpha omega">
 		<h2>Project: <?php echo $proj_info->ProjectName; ?></h2>
 	</div>
-	<div  class="grid_8">
+	<div  class="grid_12">
 		<div class="customtabs tabs-imbricate">
 			<div class="customtabs-nav">
 				<div class="customtabs-nav-clip">
@@ -19,8 +33,8 @@
 			<div class="customtabs-panels">
 				<div class="customtabs-panel">				
 					<?php if(isset($proj_img_summary)) : ?>
-					<div class="sliderkit photosgallery-vertical" >	
-						<div class="sliderkit-nav">
+					<div class="sliderkit photosgallery-vertical" style="width: 896px;" >
+						<div class="sliderkit-nav" >
 							<div class="sliderkit-nav-clip">
 								<ul>
 									<p><?php if(isset($proj_img_summary)) : foreach ($proj_img_summary as $an_img) : ?>
@@ -34,7 +48,7 @@
 						<div class="sliderkit-panels">
 							<p><?php if(isset($proj_img_summary)) : foreach ($proj_img_summary as $an_img) : ?>
 							<div class="sliderkit-panel">
-								<img src="<?php echo base_url(); echo "uploads/$an_img->imageURL"; ?>" alt="Summary Image" height = 335px width = 500px  style="margin-left: 150px;"  />
+								<img src="<?php echo base_url(); echo "uploads/$an_img->imageURL"; ?>" alt="Summary Image" height = 335px width = 500px  style="margin-left: 200px;"  />
 								<div class="sliderkit-panel-textbox">
 									<div class="sliderkit-panel-text">
 										<p><?php echo "$an_img->description"; ?></p>
@@ -47,7 +61,7 @@
 						</div>
 					</div>
 					<?php else : ?>
-					<div  class="grid_8">
+					<div  class="grid_12 alpha omega">
 						<h3>No content to display.</h3>
 					</div>
 					<?php endif; ?>
@@ -70,7 +84,7 @@
 						<div class="sliderkit-panels">
 							<p><?php if(isset($proj_img_opp)) : foreach ($proj_img_opp as $an_img) : ?>
 							<div class="sliderkit-panel">
-								<img src="<?php echo base_url(); echo "uploads/$an_img->imageURL"; ?>" alt="Opportunity Image" height = 335px width = 500px  style="margin-left: 150px;" />
+								<img src="<?php echo base_url(); echo "uploads/$an_img->imageURL"; ?>" alt="Opportunity Image" height = 335px width = 500px  style="margin-left: 200px;" />
 								<div class="sliderkit-panel-textbox">
 									<div class="sliderkit-panel-text">
 										<p><?php echo "$an_img->description"; ?></p>
@@ -83,7 +97,7 @@
 						</div>
 					</div>
 					<?php else : ?>
-					<div  class="grid_8">
+					<div  class="grid_12 alpha omega">
 						<h3>No content to display.</h3>
 					</div>
 					<?php endif; ?>
@@ -105,7 +119,7 @@
 						<div class="sliderkit-panels">
 							<p><?php if(isset($proj_img_idea)) : foreach ($proj_img_idea as $an_img) : ?>
 							<div class="sliderkit-panel">
-								<img src="<?php echo base_url(); echo "uploads/$an_img->imageURL"; ?>" alt="Ideation Image" height = 335px width = 500px  style="margin-left: 150px;"  />
+								<img src="<?php echo base_url(); echo "uploads/$an_img->imageURL"; ?>" alt="Ideation Image" height = 335px width = 500px  style="margin-left: 200px;"  />
 								<div class="sliderkit-panel-textbox">
 									<div class="sliderkit-panel-text">
 										<p><?php echo "$an_img->description"; ?></p>
@@ -118,7 +132,7 @@
 						</div>
 					</div>
 					<?php else : ?>
-					<div  class="grid_8">
+					<div  class="grid_12 alpha omega">
 						<h3>No content to display.</h3>
 					</div>
 					<?php endif; ?>
@@ -140,7 +154,7 @@
 						<div class="sliderkit-panels">
 							<p><?php if(isset($proj_img_finalprod)) : foreach ($proj_img_finalprod as $an_img) : ?>
 							<div class="sliderkit-panel">
-								<img src="<?php echo base_url(); echo "uploads/$an_img->imageURL"; ?>" alt="Final Product Image" height = 335px width = 500px  style="margin-left: 150px;"  />
+								<img src="<?php echo base_url(); echo "uploads/$an_img->imageURL"; ?>" alt="Final Product Image" height = 335px width = 500px  style="margin-left: 200px;"  />
 								<div class="sliderkit-panel-textbox">
 									<div class="sliderkit-panel-text">
 										<p><?php echo "$an_img->description"; ?></p>
@@ -153,7 +167,7 @@
 						</div>
 					</div>
 					<?php else : ?>
-					<div  class="grid_8">
+					<div  class="grid_12 alpha omega">
 						<h3>No content to display.</h3>
 					</div>
 					<?php endif; ?>
@@ -176,7 +190,7 @@
 					
 					
 					else : ?>
-					<div  class="grid_8">
+					<div  class="grid_12 alpha omega">
 						<h3>No content to display.</h3>
 					</div>
 					<?php endif; ?>
@@ -214,7 +228,7 @@
 						</div>
 					</div>
 					<?php else : ?>
-					<div  class="grid_8">
+					<div  class="grid_12 alpha omega">
 						<h3>No content to display.</h3>
 					</div>
 					<?php endif; ?>

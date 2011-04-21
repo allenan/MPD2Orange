@@ -16,7 +16,7 @@
                     </div>
 		</div>
 		
-		<div id="bio_info_box" class = "grid_3 alpha omega pull_3">
+		<div id="bio_info_box" class = "grid_4 alpha omega pull_3">
                     <p><b>Graduation Year: </b><?php echo $alum_data->GraduationYear; ?></p>
                     <p><b>Industry: </b><?php echo $alum_data->Industry; ?></p>
                     <p><b>Current Employer: </b><?php echo $alum_data->CurrentEmployer; ?></p>

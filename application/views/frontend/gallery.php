@@ -21,9 +21,9 @@
 
                         <div class="img">
                             <a href= "<?php echo base_url(); echo index_page(); echo'/';?>site/project/<?php echo $project->ProjID; ?>" title="<?php echo $project->ProjectName; ?>">
-                                <img src="<?php echo base_url(); echo "uploads/$project->ImageURL"; ?>" alt="<?php echo $project->ProjectName; ?>" width="240" />
+                                <img src="<?php echo base_url(); echo "uploads/$project->ImageURL"; ?>" alt="<?php echo $project->ProjectName; ?>" height="240" />
                             </a>
-                            <div class="desc"><?php echo $project->Summary; ?></div>
+<!--                            <div class="desc">//<?php //echo $project->Summary; ?></div>-->
                         </div>
                     <?php endif; ?>
                     <?php endforeach; ?>
