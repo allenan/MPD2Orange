@@ -523,7 +523,7 @@
 .tabs-imbricate .customtabs-news h3,
 .tabs-imbricate .customtabs-news h3 a{color:#000;font-weight:bold;}
 .tabs-imbricate .customtabs-news h3{font-size:1.2em;margin:0 0 15px;}
-.tabs-imbricate .customtabs-news img{float:right;width:130px;height:auto;margin:0 0 0 10px;overflow:hidden;}
+.tabs-imbricate .customtabs-news img{float:right;/*width:130px;*/height:auto;margin:0 0 0 10px;overflow:hidden;}
 .tabs-imbricate .customtabs-news p{margin:0;}
 
 /* Imbricated carousel */

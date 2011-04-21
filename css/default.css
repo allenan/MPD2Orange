@@ -146,6 +146,11 @@ div.desc
     margin-top:20px;
 }
 
+#bio_info_box
+{
+    text-align: left;
+}
+
 #project_title
 {
     text-align:center;
