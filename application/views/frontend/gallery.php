@@ -12,11 +12,11 @@
 		<div id="content" class="grid_12">
                     <?php if(isset($years)) : foreach ($years as $oneyear) : ?>
 
-                    <div class="grid_1 alpha year">
+                    <div class="grid_2 alpha year">
                         <a name="<?php echo $oneyear->year; ?>"><p><?php echo $oneyear->year; ?></p></a>
                     </div>
 
-                    <div class="grid_11 alpha omega">
+                    <div class="grid_10 alpha omega">
                     <?php foreach ($projs as $project) : if($project->Year == $oneyear->year) : ?>
 
                         <div class="img">

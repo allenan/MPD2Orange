@@ -73,6 +73,10 @@ ul li {
     background-color: #fff;
 }
 
+#year_nav
+{
+    height: 50px;
+}
 #year_nav ul li a{
     text-decoration: none;
     color: #aaa;
@@ -86,7 +90,7 @@ ul li {
 
 #content
 {
-    background-color: #ddd;
+    background-color: #eee;
     border-top-left-radius: 20px;
 }
 div.img
@@ -96,8 +100,9 @@ div.img
     margin-right:5px;
     margin-top:20px;
     border:1px solid #000;
-    height:auto;
-    width:auto;
+    height:228px;
+    width:228px;
+    overflow: hidden;
     float:left;
     text-align:center;
     padding:10px;
@@ -105,12 +110,12 @@ div.img
 div.img img
 {
     display:inline;
-    margin:3px;
-    border:1px solid #ffffff;
+    margin:0px;
+/*    border:1px solid #ffffff;*/
 }
 div.img a:hover img
 {
-    border:1px solid #0000ff;
+/*    border:1px solid #0000ff;*/
 }
 div.desc
 {
@@ -125,6 +130,16 @@ div.desc
     margin-top: 20px;
 }
 
+#alumni_table_wrapper
+{
+    width: 920px;
+}
+
+#alumni_table td
+{
+ 
+}
+
 #bio_title
 {
     text-align:center;
@@ -137,11 +152,16 @@ div.desc
     margin-top:20px;
 }
 
+.year
+{
+    margin-top: 0px;
+}
+
 .year p
 {
     writing-mode: tb-rl;
     -webkit-transform: rotate(270deg);
     -moz-transform: rotate(270deg);
-    margin-top:130px;
-    font-size: 20px;
+    margin-top:100px;
+    font-size: 40px;
 }
