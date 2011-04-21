@@ -20,6 +20,9 @@
                     <?php foreach ($projs as $project) : if($project->Year == $oneyear->year) : ?>
 
                         <div class="img">
+                            <div class="details">
+                                <h3><?php echo $project->ProjectName;?></h3>
+                            </div>
                             <a href= "<?php echo base_url(); echo index_page(); echo'/';?>site/project/<?php echo $project->ProjID; ?>" title="<?php echo $project->ProjectName; ?>">
                                 <img src="<?php echo base_url(); echo "uploads/$project->ImageURL"; ?>" alt="<?php echo $project->ProjectName; ?>" height="240" />
                             </a>
