@@ -3,8 +3,9 @@
     background-color: black;
     -moz-border-radius-bottomright: 20px;
     border-bottom-right-radius: 20px;
-    height: 120px;
+    height: 130px;
     overflow: hidden;
+    margin-top: -20px;
 }
 
 #logo img
@@ -18,12 +19,12 @@
     background-color: #000;
     -moz-border-radius-bottomleft: 20px;
     border-bottom-left-radius: 20px;
-    
+
 }
 
 #site_nav ul
 {
-    padding-top:55px;
+    padding-top:45px;
 }
 
 #site_nav ul li
@@ -47,7 +48,7 @@
     padding: 3px 3px 3px 6px;
     color: #fff;
     height: 28px;
-    
+
 }
 
 ul { 
@@ -117,11 +118,11 @@ div.img img
 {
     display:inline;
     margin:0px;
-/*    border:1px solid #ffffff;*/
+    /*    border:1px solid #ffffff;*/
 }
 div.img a:hover img
 {
-/*    border:1px solid #0000ff;*/
+    /*    border:1px solid #0000ff;*/
 }
 div.desc
 {
@@ -143,7 +144,7 @@ div.desc
 
 #alumni_table td
 {
- 
+
 }
 
 #bio_title
@@ -210,4 +211,19 @@ div.desc
 .details a.more:hover {
     background-color: #0090E2;
     color: #FFFFFF;
+}
+
+#login
+{
+    background-color: black;
+
+    text-align: right;
+
+}
+
+#login a
+{
+    color: #aaa;
+    text-decoration: none;
+    padding-right: 23px;
 }

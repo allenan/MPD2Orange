@@ -20,7 +20,7 @@
                     <p><b>Graduation Year: </b><?php echo $alum_data->GraduationYear; ?></p>
                     <p><b>Industry: </b><?php echo $alum_data->Industry; ?></p>
                     <p><b>Current Employer: </b><?php echo $alum_data->CurrentEmployer; ?></p>
-                    <p><?php echo "$alum_data->info";?></p>
+                    <p><?php echo $alum_data->info;?></p>
                     <?php if ($alum_data->twitter != '') : ?>
                         <a href="<?php echo "$alum_data->twitter"; ?>"><img src="<?php echo base_url() . "images/twitter_logo.jpg"; ?>" alt="Twitter" width="24px"/></a>
                     <?php endif; ?>
