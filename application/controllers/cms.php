@@ -26,7 +26,7 @@ class Cms extends CI_Controller {
         $data['current_info'] = $this->image_model->get_proj_images_typed($proj_id, 4);
         $data['cms_main_content'] = 'bio';
         $data['bio_content'] = $this->bio_model->get_bio($Login);
-		$data['position'] = $this->alumni_model->get_team_position_login($Login);
+		$data['position'] = $this->alumni_model->get_team_imagePos_login($Login);
         $this->load->view('cms/cms_template', $data);
     }
 

@@ -174,22 +174,29 @@
 				</div>
 								
 				<div class="customtabs-panel">
-					<?php if(isset($proj_info)) :
-					echo "<p><b>Market Segmentation: </b> $proj_info->MarketSegmentation</p>";
-					echo "<p><b>Target Market:</b> $proj_info->TargetMarket</p> ";
-					echo "<p><b>Market Positioning:</b> $proj_info->MarketPositioning</p> ";
-					echo "<p><b>Qualitative Research: </b> $proj_info->QualitativeResearch</p> ";
-					echo "<p><b>Quantitative Research: </b> $proj_info->QuantitativeResearch</p>";
-					echo "<p><b>Price: </b> $proj_info->Price </p> ";
-					echo "<p><b>Country of Origin: </b> $proj_info->CountryOfOrigin </p> ";
-					echo "<p><b>Material Selection: </b> $proj_info->MaterialSelection</p> ";
-					echo "<p><b>Intellectual Property: </b> $proj_info->IntellectualProperty</p> ";
-					echo "<p><b>Human Factors: </b>$proj_info->HumanFactors</p> ";
-					echo "<p><b>Regulations: </b> $proj_info->Regulations</p> ";
-					echo "<p><b>Other Info: </b> $proj_info->OtherInfo </p>";
+					<?php $counter = -1;
+					if(isset($proj_info)) {
+					$counter = 0;
+					if($proj_info->MarketSegmentation){ echo "<p><b>Market Segmentation: </b> $proj_info->MarketSegmentation</p>"; $counter++;}
+					if($proj_info->TargetMarket){echo "<p><b>Target Market:</b> $proj_info->TargetMarket</p> ";$counter++;}
+					if($proj_info->MarketPositioning) { echo "<p><b>Market Positioning:</b> $proj_info->MarketPositioning</p> ";$counter++;}
+					if($proj_info->QualitativeResearch) { echo "<p><b>Qualitative Research: </b> $proj_info->QualitativeResearch</p> ";$counter++; }
+					if($proj_info->QuantitativeResearch) {echo "<p><b>Quantitative Research: </b> $proj_info->QuantitativeResearch</p>";$counter++;}
+					if($proj_info->Price) {echo "<p><b>Price: </b> $proj_info->Price </p> ";$counter++;}
+					if($proj_info->CountryOfOrigin) { echo "<p><b>Country of Origin: </b> $proj_info->CountryOfOrigin </p> ";$counter++;}
+					if($proj_info->MaterialSelection) { echo "<p><b>Material Selection: </b> $proj_info->MaterialSelection</p> ";$counter++;}
+					if($proj_info->IntellectualProperty) {echo "<p><b>Intellectual Property: </b> $proj_info->IntellectualProperty</p> ";$counter++;}
+					if($proj_info->HumanFactors){echo "<p><b>Human Factors: </b>$proj_info->HumanFactors</p> ";$counter++;}
+					if($proj_info->Regulations) {echo "<p><b>Regulations: </b> $proj_info->Regulations</p> ";$counter++;}
+					if($proj_info->OtherInfo){echo "<p><b>Other Info: </b> $proj_info->OtherInfo </p>";$counter++;}
+					}
 					
-					
-					else : ?>
+					else { ?>
+					<div  class="grid_12 alpha omega">
+						<h3>No content to display.</h3>
+					</div>
+					<?php }
+					if($counter == 0) :?>
 					<div  class="grid_12 alpha omega">
 						<h3>No content to display.</h3>
 					</div>
