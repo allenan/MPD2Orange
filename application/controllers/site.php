@@ -95,7 +95,7 @@ class Site extends CI_Controller
 			$data['proj_img_finalprod'] = $query8;
 		}
 		
-		$data['which_alumni'] = $this->Alumni_model->get_team_position($teamid, $alum_id);
+		$data['which_alumni'] = $this->Alumni_model->get_team_imagePos($teamid, $alum_id);
 
 		if($query0 = $this->Alumni_model->bio_info_team($teamid))
 		{

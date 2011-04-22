@@ -73,6 +73,24 @@ class Alumni_model extends CI_Model {
 		
 	}
 	
+	function get_team_imagePos($team_id, $alum_id) {
+		$query = $this->db->query("select position from alumni join images on alumni.alumniID = images.alumniID and imgtype = 4 where images.alumniID = ?", $alum_id);
+		$ret = $query->num_rows();
+		if( $ret)
+		{
+			return $query->first_row()->position;
+		}
+		else
+		{
+			$q =  $this->db->query("select max(position)+1 as maxpos from alumni join images on alumni.alumniID = images.alumniID and imgtype = 4 where images.teamID = ?", $team_id);
+			$r = $q->num_rows();
+			if($r)
+				return $q->first_row()->maxpos;
+			else return 0;
+		}
+		
+	}
+	
 	function bio_info_team($team_id) {
         $this->db->where('alumni.teamid', $team_id);
         $this->db->from('alumni');
