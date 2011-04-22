@@ -95,7 +95,7 @@ class Alumni_model extends CI_Model {
         $this->db->where('alumni.teamid', $team_id);
         $this->db->from('alumni');
         $this->db->join('images', 'images.alumniID = alumni.alumniID and images.imgtype = 4');
-        $this->db->order_by("images.alumniID", "asc");
+        $this->db->order_by("images.position", "asc");
 
         $query = $this->db->get();
 
