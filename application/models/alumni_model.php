@@ -50,7 +50,7 @@ class Alumni_model extends CI_Model {
 
 	function get_team_position_login($login) {
         $query = $this->db->query("select alumniID from alumni where teamID = ? and alumniid < ? order by alumniID asc",
-			array($this->get_alumID_login($login),$this->get_teamID_login($login)));
+			array($this->get_teamID_login($login),$this->get_alumID_login($login)));
 
         return $query->num_rows();
     } 
