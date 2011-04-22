@@ -21,19 +21,20 @@
         <script type="text/javascript">
             jQuery(window).load(function(){
                 jQuery(".photosgallery-vertical").sliderkit({
-                    debug:true,
-                    circular:true,
-                    shownavitems:4,
+					circular:true,
+                    shownavitems:5,
                     verticalnav:true,
                     navclipcenter:true,
                     start:<?php echo $which_alumni; ?>,
+					panelfx:"none",
                     auto:false
                 });
                 jQuery(".tabs-imbricate").sliderkit({
                     cssprefix:"customtabs",
                     auto:false,
                     tabs:true,
-                    start:<?php echo $start_val; ?>
+                    start:<?php echo $start_val; ?>,
+					panelfx:"none"
                 });
             });
 
