@@ -41,7 +41,9 @@
         <script src="<?php echo base_url() ?>js/jquery.dataTables.js" language="javascript" type="text/javascript" /></script>
         <script charset="utf-8" type="text/javascript">
             $(document).ready(function() {
-                $('#alumni_table').dataTable();
+                $('#alumni_table').dataTable({
+					"aaSorting":[[0,'desc']]
+				});
             } );
         </script>
 

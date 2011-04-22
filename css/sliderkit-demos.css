@@ -509,7 +509,7 @@
 .tabs-imbricate .customtabs-nav-clip li{height:24px;padding:0 0 0 5px;margin:0 2px 0 0;}
 .tabs-imbricate .customtabs-nav-clip li,
 .tabs-imbricate .customtabs-nav-clip li a{float:left; font: 24px 'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif;}
-.tabs-imbricate .customtabs-nav-clip li a{display:block;overflow:hidden;height:24px;margin:0;padding:4px 8px 0;color:#aaa;text-decoration:none;background-position:right -22px;}
+.tabs-imbricate .customtabs-nav-clip li a{display:block;overflow:hidden;height:24px;margin:0;padding:4px 8px;color:#aaa;text-decoration:none;background-position:right -22px;}
 .tabs-imbricate .customtabs-nav-clip li a:hover { color:#666;  }
 .tabs-imbricate .customtabs-nav-clip li.customtabs-selected a{color:#7d74ad;background-position:right -66px;}
 
