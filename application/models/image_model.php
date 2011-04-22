@@ -15,6 +15,7 @@ class Image_model extends CI_Model {
         $this->db->where('projid', $proj_id);
 		$this->db->where('imgtype',$image_type);
         $this->db->select('imageURL, description');
+		$this->db->order_by('position', 'asc');
         $query = $this->db->get('images');
 
         return $query->result();

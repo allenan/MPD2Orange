@@ -55,6 +55,7 @@ class Upload extends CI_Controller {
         $config['max_width'] = '2000';
         $config['max_height'] = '2000';
         //$config['file_name'] = $filename;
+		$deleteoldpic = 0;
 
         $this->load->library('upload', $config);
 
@@ -110,7 +111,8 @@ class Upload extends CI_Controller {
                 }
                 //die($dup_info['url']);
                 //delete entry in images table
-                $this->image_model->delete_image($dup_info['id'], $projID, $type);
+				$deleteoldpic = 1;
+                
             }
 
             $data = array('upload_data' => $this->upload->data());
@@ -118,8 +120,9 @@ class Upload extends CI_Controller {
             
 			
 			$position = $this->image_model->add_image($dataDB, $projID, $type, $position);
-			
-			
+			if($deleteoldpic){
+			$this->image_model->delete_image($dup_info['id'], $projID, $type);
+			}
 			
 
             redirect('cms/tn/' . $type . '/' . $position);
