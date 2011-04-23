@@ -10,8 +10,16 @@ class Cms extends CI_Controller {
     //PAGES
 
     function index() {
-        $data['cms_main_content'] = 'home';
-        $this->load->view('cms/cms_template', $data);
+        if ($this->session->userdata('Privileges') == 0)
+        {
+            $this->project();
+        }
+        if ($this->session->userdata('Privileges') == 1)
+        {
+            $this->new_user();
+        }
+//        $data['cms_main_content'] = 'home';
+//        $this->load->view('cms/cms_template', $data);
     }
 
     function bio() {
